@@ -1,0 +1,9 @@
+# Tor shared random state file last generated on 2000-01-01 00:55:00 local time
+# Other times below are in UTC
+# Please *do not* edit this file.
+
+Commit 1 sha3-256 BA3FDA7CE3B41FBF9BB3615BE6ACD28D883E694B AAAAADhtRBYINmttk7SOb5Ky8Etd8G//yw3jAFsklp+zheCEQbMFMQ== AAAAADhtRBb3CbsWKl+Kwesd9F7rP2sAM9+KoI5JbFeHjwCutilg/g==
+TorVersion 0.4.4.5 (git-24e808e946e741d0)
+ValidAfter 2000-01-01 01:00:00
+ValidUntil 2000-01-01 02:00:00
+Version 1

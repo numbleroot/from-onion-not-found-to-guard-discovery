@@ -1,0 +1,17 @@
+ORPort 0
+DirPort 0
+ClientOnly 1
+UseBridges 0
+ConnectionPadding 0
+SocksPort 9000
+SocksListenAddress 127.0.0.1
+
+EntryNodes 4EBB385C80A2CA5D671E16F1C722FBFB5F176891
+HSLayer2Nodes 3FB0BD7827C760FE7F9DD810FCB10322D63AB4CF
+MiddleNodes FF197204099FA0E507FA46D41FED97D3337B4BAA
+
+# Replace above two lines with the following ones in order to fix
+# middle1 in position 3 instead of 2 on the onion circuits and middle2
+# in position 2 instead of 3.
+#   HSLayer2Nodes FF197204099FA0E507FA46D41FED97D3337B4BAA
+#   MiddleNodes 3FB0BD7827C760FE7F9DD810FCB10322D63AB4CF

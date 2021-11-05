@@ -1,0 +1,62 @@
+FROM ubuntu:18.04
+
+SHELL ["/bin/bash", "-l", "-c"]
+RUN echo "root:root" | chpasswd
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get update --yes && apt-get upgrade --yes --with-new-pkgs
+RUN DEBIAN_FRONTEND=noninteractive apt-get install --yes autotools-dev autoconf cmake gcc g++ \
+    libc-dbg libglib2.0-dev libevent-dev libssl-dev libigraph-dev make xz-utils \
+    python3 python3-pyelftools python3-numpy python3-lxml python3-matplotlib \
+    python3-networkx python3-scipy python3-pip python3-venv \
+    sudo dstat git htop screen wget
+RUN rm -rf /var/lib/apt/lists/*
+
+RUN useradd -m -d /home/tornetgen -s /bin/bash -g sudo tornetgen
+USER tornetgen
+
+WORKDIR /home/tornetgen
+RUN git clone https://github.com/tmodel-ccs2018/tmodel-ccs2018.github.io.git
+WORKDIR /home/tornetgen/tmodel-ccs2018.github.io
+RUN git checkout d8351ebb8f5bffbdae6fd7a74c06f7fc76e04de0
+
+WORKDIR /home/tornetgen
+RUN git clone https://github.com/torproject/tor.git
+WORKDIR /home/tornetgen/tor
+RUN git checkout tor-0.4.4.5
+RUN ./autogen.sh
+RUN ./configure --disable-asciidoc --disable-manpage --disable-html-manual --disable-unittests
+RUN make --jobs 4
+
+WORKDIR /home/tornetgen
+RUN git clone https://github.com/shadow/tornettools.git
+WORKDIR /home/tornetgen/tornettools
+RUN git checkout v1.0.1
+RUN python3.6 -m venv tornetgen
+RUN source tornetgen/bin/activate
+RUN pip3 install wheel
+RUN pip3 install -r requirements.txt
+RUN pip3 install -I .
+
+WORKDIR /home/tornetgen
+RUN wget https://collector.torproject.org/archive/relay-descriptors/consensuses/consensuses-2020-05.tar.xz
+RUN wget https://collector.torproject.org/archive/relay-descriptors/server-descriptors/server-descriptors-2020-05.tar.xz
+RUN wget https://collector.torproject.org/archive/torperf/torperf-2020-05.tar.xz
+RUN wget https://metrics.torproject.org/userstats-relay-country.csv
+RUN tar xaf consensuses-2020-05.tar.xz && rm consensuses-2020-05.tar.xz
+RUN tar xaf server-descriptors-2020-05.tar.xz && rm server-descriptors-2020-05.tar.xz
+RUN tar xaf torperf-2020-05.tar.xz && rm torperf-2020-05.tar.xz
+
+WORKDIR /home/tornetgen/tornettools
+ENV PATH="/home/tornetgen/tor/src/core/or:/home/tornetgen/tor/src/app:/home/tornetgen/tor/src/tools:$PATH"
+
+# This is going to take a while.
+RUN tornetgen stage /home/tornetgen/consensuses-2020-05 /home/tornetgen/server-descriptors-2020-05 \
+        /home/tornetgen/userstats-relay-country.csv --geoip_path /home/tornetgen/tor/src/config/geoip
+
+# This will generate the actual scaled-down Tor network.
+# Make sure PATH contains the tor binaries, otherwise this will fail.
+RUN tornetgen generate /home/tornetgen/tornettools/relayinfo_staging_2020-05-01--2020-05-31.json \
+        /home/tornetgen/tornettools/userinfo_staging_2020-05-01--2020-05-31.json \
+        /home/tornetgen/tmodel-ccs2018.github.io --network_scale 0.02 --prefix tornet-0.02
+
+CMD cp -r /home/tornetgen/{consensuses-2020-05,server-descriptors-2020-05,torperf-2020-05,userstats-relay-country.csv,tornettools/*.json,tornettools/tornet-0.02} /tor-network-generation/

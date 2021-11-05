@@ -1,0 +1,30 @@
+# Tor state file last generated on 2000-01-01 00:43:22 local time
+# Other times below are in UTC
+# You *do not* need to edit this file.
+
+CircuitBuildTimeBin 125 100
+CircuitBuildTimeBin 175 4
+BWHistoryDirReadEnds 2000-01-02 00:01:00
+BWHistoryDirReadInterval 86400
+BWHistoryDirReadMaxima 0
+BWHistoryDirReadValues 0
+BWHistoryDirWriteEnds 2000-01-02 00:01:00
+BWHistoryDirWriteInterval 86400
+BWHistoryDirWriteMaxima 0
+BWHistoryDirWriteValues 0
+BWHistoryReadEnds 2000-01-02 00:01:00
+BWHistoryReadInterval 86400
+BWHistoryReadMaxima 197632
+BWHistoryReadValues 7983104
+BWHistoryWriteEnds 2000-01-02 00:01:00
+BWHistoryWriteInterval 86400
+BWHistoryWriteMaxima 198656
+BWHistoryWriteValues 8573952
+Dormant 0
+Guard in=default rsa_id=3FB0BD7827C760FE7F9DD810FCB10322D63AB4CF nickname=middle1 sampled_on=1999-12-23T04:13:02 sampled_idx=0 sampled_by=0.4.4.5 listed=1 confirmed_on=1999-12-20T19:57:43 confirmed_idx=1 pb_circ_attempts=64.000000 pb_circ_successes=64.000000 pb_successful_circuits_closed=64.000000
+Guard in=default rsa_id=4EBB385C80A2CA5D671E16F1C722FBFB5F176891 nickname=guard sampled_on=1999-12-22T03:05:20 sampled_idx=1 sampled_by=0.4.4.5 listed=1 confirmed_on=1999-12-28T18:10:15 confirmed_idx=0 pb_circ_attempts=36.000000 pb_circ_successes=36.000000 pb_successful_circuits_closed=36.000000
+LastRotatedOnionKey 2000-01-01 00:01:00
+LastWritten 2000-01-01 00:43:22
+MinutesSinceUserActivity 2
+TorVersion Tor 0.4.4.5 (git-24e808e946e741d0)
+TotalBuildTimes 104

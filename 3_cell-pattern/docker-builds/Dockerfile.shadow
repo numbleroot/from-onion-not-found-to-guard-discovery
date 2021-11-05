@@ -1,0 +1,61 @@
+FROM ubuntu:18.04
+
+RUN useradd -m -d /home/shadow -s /bin/bash -g sudo shadow
+RUN echo "root:root" | chpasswd
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get update --yes && apt-get upgrade --yes --with-new-pkgs
+RUN DEBIAN_FRONTEND=noninteractive apt-get install --yes autotools-dev autoconf cmake gcc g++ \
+    libc-dbg libglib2.0-dev libigraph-dev make python3 python3-pyelftools xz-utils \
+    python3-numpy python3-lxml python3-matplotlib python3-networkx python3-scipy \
+    dstat git htop screen
+RUN rm -rf /var/lib/apt/lists/*
+
+USER shadow
+
+WORKDIR /home/shadow
+RUN git clone https://github.com/shadow/shadow.git
+WORKDIR /home/shadow/shadow
+RUN git checkout d2fc305e3c4e06005118b0c6d98c942e653c0d45
+RUN ./setup build --clean --debug --jobs 4 --test
+RUN ./setup install
+
+WORKDIR /home/shadow
+RUN git clone https://github.com/shadow/tgen.git
+RUN mkdir tgen/build
+WORKDIR /home/shadow/tgen/build
+RUN git checkout 47d5eb385195eb22a87b05984116447ad32ef8d7
+RUN cmake .. -DCMAKE_INSTALL_PREFIX=/home/shadow/.shadow
+RUN make && make install
+
+WORKDIR /home/shadow
+RUN git clone https://github.com/shadow/oniontrace.git
+RUN mkdir oniontrace/build
+WORKDIR /home/shadow/oniontrace/build
+RUN git checkout bc26be3c4737a8a367a156f12bab2975cd811855
+RUN cmake .. -DCMAKE_INSTALL_PREFIX=/home/shadow/.shadow
+RUN make && make install
+
+WORKDIR /home/shadow
+RUN git clone https://github.com/torproject/tor.git custom-tor
+WORKDIR /home/shadow/custom-tor
+RUN git checkout tor-0.4.4.5
+
+WORKDIR /home/shadow
+RUN git clone https://github.com/shadow/shadow-plugin-tor.git
+WORKDIR /home/shadow/shadow-plugin-tor
+RUN git checkout 88dfd32ac6a9ad697f01ecfd1e77c4e97551f0ce
+RUN ./setup dependencies --assume-yes
+
+WORKDIR /home/shadow/custom-tor
+ADD --chown=shadow:sudo ./patches-for-tor/ /home/shadow/patches-for-tor
+RUN git apply --check /home/shadow/patches-for-tor/cell_counters.patch
+RUN git apply /home/shadow/patches-for-tor/cell_counters.patch
+
+WORKDIR /home/shadow/shadow-plugin-tor
+RUN ./setup build --assume-yes --verbose --debug --jobs 4 --tor-prefix /home/shadow/custom-tor
+RUN ./setup install
+WORKDIR /home/shadow
+
+ENV PATH="/home/shadow/.shadow/bin:$PATH"
+
+CMD cd /experiment && shadow shadow.config.xml

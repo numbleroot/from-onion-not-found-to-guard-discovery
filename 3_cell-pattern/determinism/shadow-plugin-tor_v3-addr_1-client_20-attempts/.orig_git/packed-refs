@@ -1,0 +1,12 @@
+# pack-refs with: peeled fully-peeled sorted 
+d0c20dd6ca71fdedd2a37d4c3fff438454514267 refs/remotes/origin/jnewsome/bump-openssl
+1b2ee658880d0465555ada06d0f13aa3327dec60 refs/remotes/origin/jnewsome/downloads-fail-fast
+a1be39535c2bec04826ce70b99d43f80c082c0d0 refs/remotes/origin/main
+006aa4757258aab2db42bff48a0b59dc2b924197 refs/tags/v1.10.0
+^078a61a0650869f1e63afa4cf4dc12932661c0bf
+b93a8a95d3031e44f2217350a39b26517448c52d refs/tags/v1.11.0
+^56d88240d509f52a19062bf1f769c2db90616579
+0e2567bd3e1ca2692b881398dd7d28d276abc98c refs/tags/v1.12.0
+^deb1fa6f7d22c3f9d5abbbd89112fe403c2d21ad
+f25b2fd9889ee67218a2712cfa5b528692876729 refs/tags/v1.13.0
+^2b1562eed4a50fd4b97d970c21ed51961d55a599

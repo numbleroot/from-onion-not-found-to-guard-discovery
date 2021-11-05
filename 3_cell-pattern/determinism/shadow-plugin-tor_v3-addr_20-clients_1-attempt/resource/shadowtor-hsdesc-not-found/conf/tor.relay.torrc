@@ -1,0 +1,4 @@
+ORPort 9111
+DirPort 0
+SocksPort 0
+ExitPolicy "reject *:*"

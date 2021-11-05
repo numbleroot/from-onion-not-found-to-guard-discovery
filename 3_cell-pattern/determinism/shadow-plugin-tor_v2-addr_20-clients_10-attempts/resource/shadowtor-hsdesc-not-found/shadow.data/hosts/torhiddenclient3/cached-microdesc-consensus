@@ -1,0 +1,49 @@
+network-status-version 3 microdesc
+vote-status consensus
+consensus-method 29
+valid-after 2000-01-01 00:50:00
+fresh-until 2000-01-01 00:55:00
+valid-until 2000-01-01 01:05:00
+voting-delay 20 20
+client-versions 
+server-versions 
+known-flags Authority Exit Fast Guard HSDir NoEdConsensus Running Stable StaleDesc V2Dir Valid
+recommended-client-protocols Cons=1-2 Desc=1-2 DirCache=2 HSDir=2 HSIntro=4 HSRend=2 Link=5 LinkAuth=3 Microdesc=1-2 Relay=2
+recommended-relay-protocols Cons=1-2 Desc=1-2 DirCache=2 HSDir=2 HSIntro=4 HSRend=2 Link=5 LinkAuth=3 Microdesc=1-2 Relay=2
+required-client-protocols Cons=1-2 Desc=1-2 DirCache=1 HSDir=1 HSIntro=3 HSRend=1 Link=4 Microdesc=1-2 Relay=2
+required-relay-protocols Cons=1 Desc=1 DirCache=1 HSDir=1 HSIntro=3 HSRend=1 Link=3-4 Microdesc=1 Relay=1-2
+dir-source 4uthority BA3FDA7CE3B41FBF9BB3615BE6ACD28D883E694B 100.0.0.1 100.0.0.1 9112 9111
+contact https://github.com/shadow/shadow-plugin-tor/issues
+vote-digest FA6A73C501EAC442EB313DBBFF1CAEE1EE86F5A9
+r middle1 P7C9eCfHYP5/ndgQ/LEDItY6tM8 2000-01-01 00:01:00 100.0.0.3 9111 0
+m xGTDKQtKGYGNaVIBXig2SEtREorp0RDtonpAgfu+NG0
+s Fast Guard Running Stable V2Dir Valid
+v Tor 0.4.4.5
+pr Cons=1-2 Desc=1-2 DirCache=1-2 FlowCtrl=1 HSDir=1-2 HSIntro=3-5 HSRend=1-2 Link=1-5 LinkAuth=1,3 Microdesc=1-2 Padding=2 Relay=1-2
+w Bandwidth=0 Unmeasured=1
+r guard Trs4XICiyl1nHhbxxyL7+18XaJE 2000-01-01 00:01:00 100.0.0.2 9111 0
+m 1pvOB4D2GrF3eBpoceyKzwIsMHGDe9UnyAcHhOjUF8c
+s Fast Guard Running Stable V2Dir Valid
+v Tor 0.4.4.5
+pr Cons=1-2 Desc=1-2 DirCache=1-2 FlowCtrl=1 HSDir=1-2 HSIntro=3-5 HSRend=1-2 Link=1-5 LinkAuth=1,3 Microdesc=1-2 Padding=2 Relay=1-2
+w Bandwidth=0 Unmeasured=1
+r 4uthority pSyltWxk2GT2rkPlbymsvVcG3aE 2000-01-01 00:10:01 100.0.0.1 9111 9112
+m goWTLORKVZh2JN4AGnAKPRTtBR3q/AC7FnifRSMm9U8
+s Authority Fast HSDir Running Stable V2Dir Valid
+v Tor 0.4.4.5
+pr Cons=1-2 Desc=1-2 DirCache=1-2 FlowCtrl=1 HSDir=1-2 HSIntro=3-5 HSRend=1-2 Link=1-5 LinkAuth=1,3 Microdesc=1-2 Padding=2 Relay=1-2
+w Bandwidth=0 Unmeasured=1
+r middle2 /xlyBAmfoOUH+kbUH+2X0zN7S6o 2000-01-01 00:01:00 100.0.0.4 9111 0
+m V1TXzT/FxwDbNoNGsomsbqzSGNrsyn8dq9g8rp3iv7Y
+s Fast Guard Running Stable V2Dir Valid
+v Tor 0.4.4.5
+pr Cons=1-2 Desc=1-2 DirCache=1-2 FlowCtrl=1 HSDir=1-2 HSIntro=3-5 HSRend=1-2 Link=1-5 LinkAuth=1,3 Microdesc=1-2 Padding=2 Relay=1-2
+w Bandwidth=0 Unmeasured=1
+directory-footer
+bandwidth-weights Wbd=3333 Wbe=0 Wbg=0 Wbm=10000 Wdb=10000 Web=10000 Wed=3333 Wee=10000 Weg=3333 Wem=10000 Wgb=10000 Wgd=3333 Wgg=10000 Wgm=10000 Wmb=10000 Wmd=3333 Wme=0 Wmg=0 Wmm=10000
+directory-signature sha256 BA3FDA7CE3B41FBF9BB3615BE6ACD28D883E694B B6B52D36DA47A014B5CF65A55EDC62C93523DCC3
+-----BEGIN SIGNATURE-----
+bRyHQ1lf5K/17akCUvg5BjVqulOCfs/7xWHmXswTDsty1Puwspa5VFoakvJS4SWF
+CW8a5eRxytbUakfFdNWhR7xGfnEiJPOP6WQCaijRWwMPeRTCSN2NVLMM+ACIEBPC
+lX4qbO/vzvE0CedWvkbF6/gvmSbFgQ4kB1Lkbc0wirQ=
+-----END SIGNATURE-----

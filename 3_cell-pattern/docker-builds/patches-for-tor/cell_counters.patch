@@ -1,0 +1,498 @@
+diff --git a/src/core/mainloop/mainloop.c b/src/core/mainloop/mainloop.c
+index e4e17f6b76..3858ba6be2 100644
+--- a/src/core/mainloop/mainloop.c
++++ b/src/core/mainloop/mainloop.c
+@@ -66,6 +66,7 @@
+ #include "core/or/connection_edge.h"
+ #include "core/or/connection_or.h"
+ #include "core/or/dos.h"
++#include "core/or/onion.h"
+ #include "core/or/status.h"
+ #include "feature/client/addressmap.h"
+ #include "feature/client/bridges.h"
+@@ -1376,6 +1377,9 @@ CALLBACK(write_stats_file);
+ CALLBACK(control_per_second_events);
+ CALLBACK(second_elapsed);
+
++/* Cell counters write-out callback. */
++CALLBACK(log_cell_counters);
++
+ #undef CALLBACK
+
+ /* Now we declare an array of periodic_event_item_t for each periodic event */
+@@ -1431,6 +1435,9 @@ STATIC periodic_event_item_t mainloop_periodic_events[] = {
+   /* Controller with per-second events only. */
+   CALLBACK(control_per_second_events, CONTROLEV, 0),
+
++  /* Cell counters write-out. */
++  CALLBACK(log_cell_counters, ALL, 0),
++
+   END_OF_PERIODIC_EVENTS
+ };
+ #ifndef COCCI
+@@ -2180,6 +2187,22 @@ control_per_second_events_callback(time_t now, const or_options_t *options)
+   return 1;
+ }
+
++/*
++* Periodic callback: Log in-memory cell counters to log files on disk
++* once per minute.
++*/
++static int
++log_cell_counters_callback(time_t now, const or_options_t *options)
++{
++
++#define LOG_CELL_COUNTERS_INTERVAL 60
++  time_t next_time_to_log_cell_counters = now + LOG_CELL_COUNTERS_INTERVAL;
++
++  log_cell_counters(options->Nickname);
++
++  return safe_timer_diff(now, next_time_to_log_cell_counters);
++}
++
+ /** Last time that update_current_time was called. */
+ static time_t current_second = 0;
+ /** Last time that update_current_time updated current_second. */
+diff --git a/src/core/or/circuitlist.c b/src/core/or/circuitlist.c
+index 90cce47490..6d6a6f7bb5 100644
+--- a/src/core/or/circuitlist.c
++++ b/src/core/or/circuitlist.c
+@@ -112,6 +112,8 @@
+ #include "core/or/or_circuit_st.h"
+ #include "core/or/origin_circuit_st.h"
+
++#include "core/or/onion.h"
++
+ /********* START VARIABLES **********/
+
+ /** A global list of all circuits at this hop. */
+diff --git a/src/core/or/command.c b/src/core/or/command.c
+index 8a1d2066cc..f23f929511 100644
+--- a/src/core/or/command.c
++++ b/src/core/or/command.c
+@@ -226,6 +226,7 @@ command_process_cell(channel_t *chan, cell_t *cell)
+ static void
+ command_process_create_cell(cell_t *cell, channel_t *chan)
+ {
++  char *cell_cnt_msg = NULL;
+   or_circuit_t *circ;
+   const or_options_t *options = get_options();
+   int id_is_high;
+@@ -337,6 +338,12 @@ command_process_create_cell(cell_t *cell, channel_t *chan)
+     rep_hist_note_circuit_handshake_requested(create_cell->handshake_type);
+   }
+
++  tor_asprintf(&cell_cnt_msg, "ORIGIN +1: circ_prps='%s', cell_cmd='%s'",
++               circuit_purpose_to_string(circ->base_.purpose),
++               cell_command_to_string(cell->command));
++  add_cell_count(circ, NULL, CELL_CNT_TO_ORIGIN, cell_cnt_msg);
++  tor_free(cell_cnt_msg);
++
+   if (create_cell->handshake_type != ONION_HANDSHAKE_TYPE_FAST) {
+     /* hand it off to the cpuworkers, and then return. */
+
+@@ -393,6 +400,7 @@ command_process_create_cell(cell_t *cell, channel_t *chan)
+ static void
+ command_process_created_cell(cell_t *cell, channel_t *chan)
+ {
++  char *cell_cnt_msg = NULL;
+   circuit_t *circ;
+   extended_cell_t extended_cell;
+
+@@ -418,6 +426,12 @@ command_process_created_cell(cell_t *cell, channel_t *chan)
+     return;
+   }
+
++  tor_asprintf(&cell_cnt_msg, "DEST +1: circ_prps='%s', cell_cmd='%s'",
++               circuit_purpose_to_string(circ->purpose),
++               cell_command_to_string(cell->command));
++  add_cell_count(NULL, circ, CELL_CNT_TO_DEST, cell_cnt_msg);
++  tor_free(cell_cnt_msg);
++
+   if (CIRCUIT_IS_ORIGIN(circ)) { /* we're the OP. Handshake this. */
+     origin_circuit_t *origin_circ = TO_ORIGIN_CIRCUIT(circ);
+     int err_reason = 0;
+@@ -463,6 +477,7 @@ command_process_created_cell(cell_t *cell, channel_t *chan)
+ static void
+ command_process_relay_cell(cell_t *cell, channel_t *chan)
+ {
++  char *cell_cnt_msg = NULL;
+   const or_options_t *options = get_options();
+   circuit_t *circ;
+   int reason, direction;
+@@ -513,11 +528,27 @@ command_process_relay_cell(cell_t *cell, channel_t *chan)
+
+   if (!CIRCUIT_IS_ORIGIN(circ) &&
+       chan == TO_OR_CIRCUIT(circ)->p_chan &&
+-      cell->circ_id == TO_OR_CIRCUIT(circ)->p_circ_id)
++      cell->circ_id == TO_OR_CIRCUIT(circ)->p_circ_id) {
++
+     direction = CELL_DIRECTION_OUT;
+-  else
++
++    tor_asprintf(&cell_cnt_msg, "ORIGIN +1: circ_prps='%s', cell_cmd='%s'",
++                 circuit_purpose_to_string(circ->purpose),
++                 cell_command_to_string(cell->command));
++    add_cell_count(TO_OR_CIRCUIT(circ), NULL, CELL_CNT_TO_ORIGIN, cell_cnt_msg);
++    tor_free(cell_cnt_msg);
++
++  } else {
++
+     direction = CELL_DIRECTION_IN;
+
++    tor_asprintf(&cell_cnt_msg, "DEST +1: circ_prps='%s', cell_cmd='%s'",
++                 circuit_purpose_to_string(circ->purpose),
++                 cell_command_to_string(cell->command));
++    add_cell_count(NULL, circ, CELL_CNT_TO_DEST, cell_cnt_msg);
++    tor_free(cell_cnt_msg);
++  }
++
+   /* If we have a relay_early cell, make sure that it's outbound, and we've
+    * gotten no more than MAX_RELAY_EARLY_CELLS_PER_CIRCUIT of them. */
+   if (cell->command == CELL_RELAY_EARLY) {
+@@ -611,6 +642,7 @@ command_process_relay_cell(cell_t *cell, channel_t *chan)
+ static void
+ command_process_destroy_cell(cell_t *cell, channel_t *chan)
+ {
++  char *cell_cnt_msg = NULL;
+   circuit_t *circ;
+   int reason;
+
+@@ -629,10 +661,25 @@ command_process_destroy_cell(cell_t *cell, channel_t *chan)
+   if (!CIRCUIT_IS_ORIGIN(circ) &&
+       chan == TO_OR_CIRCUIT(circ)->p_chan &&
+       cell->circ_id == TO_OR_CIRCUIT(circ)->p_circ_id) {
++
++    tor_asprintf(&cell_cnt_msg, "ORIGIN +1: circ_prps='%s', cell_cmd='%s'",
++                 circuit_purpose_to_string(circ->purpose),
++                 cell_command_to_string(cell->command));
++    add_cell_count(TO_OR_CIRCUIT(circ), NULL, CELL_CNT_TO_ORIGIN, cell_cnt_msg);
++    tor_free(cell_cnt_msg);
++
+     /* the destroy came from behind */
+     circuit_set_p_circid_chan(TO_OR_CIRCUIT(circ), 0, NULL);
+     circuit_mark_for_close(circ, reason|END_CIRC_REASON_FLAG_REMOTE);
++
+   } else { /* the destroy came from ahead */
++
++    tor_asprintf(&cell_cnt_msg, "DEST +1: circ_prps='%s', cell_cmd='%s'",
++                 circuit_purpose_to_string(circ->purpose),
++                 cell_command_to_string(cell->command));
++    add_cell_count(NULL, circ, CELL_CNT_TO_DEST, cell_cnt_msg);
++    tor_free(cell_cnt_msg);
++
+     circuit_set_n_circid_chan(circ, 0, NULL);
+     if (CIRCUIT_IS_ORIGIN(circ)) {
+       circuit_mark_for_close(circ, reason|END_CIRC_REASON_FLAG_REMOTE);
+diff --git a/src/core/or/onion.c b/src/core/or/onion.c
+index a3b5c6922d..7213d456a5 100644
+--- a/src/core/or/onion.c
++++ b/src/core/or/onion.c
+@@ -53,6 +53,141 @@
+ // trunnel
+ #include "trunnel/ed25519_cert.h"
+
++
++/* Cell tracking functionality. */
++#include <sys/stat.h>
++#include "core/or/or_circuit_st.h"
++#include "core/or/channel.h"
++
++static const char CELL_COUNTERS_DIR[] = "/home/shadow/cell_counters";
++
++FILE *cell_counters_log_fp;
++static tor_mutex_t *circuits_list_log_mut = NULL;
++static smartlist_t *circuits_list_log = NULL;
++
++static void
++check_init_cell_counting_state(void)
++{
++  if (!circuits_list_log_mut) {
++    circuits_list_log_mut = tor_mutex_new();
++  }
++
++  /* Acquire mutex, initialize smartlist, release mutex. */
++  if (!circuits_list_log) {
++    tor_mutex_acquire(circuits_list_log_mut);
++    circuits_list_log = smartlist_new();
++    tor_mutex_release(circuits_list_log_mut);
++  }
++}
++
++void
++log_cell_counters(const char *or_nick)
++{
++  struct timespec now;
++  char *cell_counters_log_file = NULL;
++
++  /* Get current timestamp. */
++  clock_gettime(CLOCK_REALTIME, &now);
++
++  /* Ensure all needed state is initialized. */
++  check_init_cell_counting_state();
++
++  if (cell_counters_log_fp == NULL) {
++
++    /* Ensure the cell counters log directory exists. */
++    mkdir(CELL_COUNTERS_DIR, 0700);
++
++    /* Construct path to relay-global cell counters log file. */
++    tor_asprintf(&cell_counters_log_file,
++      "%s/%s_cell_counters.log", CELL_COUNTERS_DIR, or_nick);
++
++    /* Open file descriptor in append mode. */
++    cell_counters_log_fp = fopen(cell_counters_log_file, "a");
++    if (cell_counters_log_fp == NULL) {
++      log_warn(LD_GENERAL, "Failed to open cell counters file '%s'",
++                cell_counters_log_file);
++      return;
++    }
++
++    tor_free(cell_counters_log_file);
++  }
++
++  /* Acquire mutex for list of cell count lines to log. */
++  tor_mutex_acquire(circuits_list_log_mut);
++
++  /* Append each cell count line to file. */
++  SMARTLIST_FOREACH_BEGIN(circuits_list_log, char *, line) {
++    fputs(line, cell_counters_log_fp);
++    tor_free(line);
++  } SMARTLIST_FOREACH_END(line);
++
++  /* Append nanosecond timestamp of this log event. */
++  fprintf(cell_counters_log_fp, "%"PRIi64".%09"PRIi64" LOGGED TO DISK\n",
++          now.tv_sec, now.tv_nsec);
++
++  /* Clear log lines smartlist. */
++  smartlist_clear(circuits_list_log);
++
++  /* Release mutex. */
++  tor_mutex_release(circuits_list_log_mut);
++
++  /* Flush log file. */
++  fflush(cell_counters_log_fp);
++}
++
++void
++add_cell_count(or_circuit_t *or_circ, circuit_t *circ,
++               cell_cnt_dir_t dir, const char *cell_cnt)
++{
++  struct timespec now;
++  void *circ_ptr = circ;
++  uint64_t chan_id = 0;
++  circid_t circ_id = 0;
++  char *cell_cnt_line = NULL;
++
++  /* Get current timestamp. */
++  clock_gettime(CLOCK_REALTIME, &now);
++
++  /* Ensure all needed state is initialized. */
++  check_init_cell_counting_state();
++
++  /* Determine channel identifier based on the direction
++    * the cell is traveling towards. */
++  if (dir == CELL_CNT_TO_ORIGIN) {
++    tor_assert(or_circ);
++    circ_ptr = or_circ;
++    chan_id = or_circ->p_chan->global_identifier;
++    circ_id = or_circ->p_circ_id;
++  }
++  if (dir == CELL_CNT_TO_DEST) {
++    tor_assert(circ);
++    circ_ptr = circ;
++    chan_id = circ->n_chan->global_identifier;
++    circ_id = circ->n_circ_id;
++  }
++
++  /* Prepare cell count log line to append. */
++  if ((chan_id != 0) && (circ_id != 0)) {
++    tor_asprintf(&cell_cnt_line, "%"PRIi64".%09"PRIi64" "
++                "%p %03"PRIu64"_%010"PRIu32" %s\n", now.tv_sec, now.tv_nsec,
++                circ_ptr, chan_id, circ_id, cell_cnt);
++  } else {
++    tor_asprintf(&cell_cnt_line, "%"PRIi64".%09"PRIi64" "
++                "%p ???_?????????? %s\n", now.tv_sec, now.tv_nsec,
++                circ_ptr, cell_cnt);
++  }
++
++  /* Acquire mutex for list of circuits to log. */
++  tor_mutex_acquire(circuits_list_log_mut);
++
++  /* Append new circuit to list of circuits to log. */
++  smartlist_add(circuits_list_log, cell_cnt_line);
++
++  /* Release mutex for list of circuits to log. */
++  tor_mutex_release(circuits_list_log_mut);
++}
++
++
+ /** Helper: return 0 if <b>cell</b> appears valid, -1 otherwise. If
+  * <b>unknown_ok</b> is true, allow cells with handshake types we don't
+  * recognize. */
+diff --git a/src/core/or/onion.h b/src/core/or/onion.h
+index 256f0a3f31..1b4b89697c 100644
+--- a/src/core/or/onion.h
++++ b/src/core/or/onion.h
+@@ -69,6 +69,20 @@ typedef struct extended_cell_t {
+   created_cell_t created_cell;
+ } extended_cell_t;
+
++
++/* Cell tracking functionality. */
++
++typedef enum {
++  CELL_CNT_NULL = 0,
++  CELL_CNT_TO_ORIGIN,
++  CELL_CNT_TO_DEST,
++} cell_cnt_dir_t;
++
++void log_cell_counters(const char *or_nick);
++void add_cell_count(or_circuit_t *or_circ, circuit_t *circ,
++                    cell_cnt_dir_t dir, const char *cell_cnt);
++
++
+ void create_cell_init(create_cell_t *cell_out, uint8_t cell_type,
+                       uint16_t handshake_type, uint16_t handshake_len,
+                       const uint8_t *onionskin);
+diff --git a/src/core/or/relay.c b/src/core/or/relay.c
+index 75d2d479e7..a9b711cf7b 100644
+--- a/src/core/or/relay.c
++++ b/src/core/or/relay.c
+@@ -85,6 +85,7 @@
+
+ #include "core/or/cell_st.h"
+ #include "core/or/cell_queue_st.h"
++#include "core/or/command.h"
+ #include "core/or/cpath_build_state_st.h"
+ #include "feature/dircommon/dir_connection_st.h"
+ #include "core/or/destroy_cell_queue_st.h"
+@@ -224,6 +225,7 @@ int
+ circuit_receive_relay_cell(cell_t *cell, circuit_t *circ,
+                            cell_direction_t cell_direction)
+ {
++  char *cell_cnt_msg = NULL;
+   channel_t *chan = NULL;
+   crypt_path_t *layer_hint=NULL;
+   char recognized=0;
+@@ -253,6 +255,11 @@ circuit_receive_relay_cell(cell_t *cell, circuit_t *circ,
+     sendme_record_received_cell_digest(circ, layer_hint);
+
+     if (circ->purpose == CIRCUIT_PURPOSE_PATH_BIAS_TESTING) {
++
++      tor_asprintf(&cell_cnt_msg, "|-> Cell meant for path bias testing");
++      add_cell_count(NULL, circ, CELL_CNT_NULL, cell_cnt_msg);
++      tor_free(cell_cnt_msg);
++
+       if (pathbias_check_probe_response(circ, cell) == -1) {
+         pathbias_count_valid_cells(circ, cell);
+       }
+@@ -297,12 +304,29 @@ circuit_receive_relay_cell(cell_t *cell, circuit_t *circ,
+   circpad_deliver_unrecognized_cell_events(circ, cell_direction);
+
+   if (cell_direction == CELL_DIRECTION_OUT) {
++
+     cell->circ_id = circ->n_circ_id; /* switch it */
+     chan = circ->n_chan;
++
++    tor_asprintf(&cell_cnt_msg, "|-> Encrypted payload, passing on");
++    add_cell_count(NULL, circ, CELL_CNT_NULL, cell_cnt_msg);
++    tor_free(cell_cnt_msg);
++
+   } else if (! CIRCUIT_IS_ORIGIN(circ)) {
++
+     cell->circ_id = TO_OR_CIRCUIT(circ)->p_circ_id; /* switch it */
+     chan = TO_OR_CIRCUIT(circ)->p_chan;
++
++    tor_asprintf(&cell_cnt_msg, "|-> Encrypted payload, passing on");
++    add_cell_count(NULL, circ, CELL_CNT_NULL, cell_cnt_msg);
++    tor_free(cell_cnt_msg);
++
+   } else {
++
++    tor_asprintf(&cell_cnt_msg, "|-> BUG: Neither ORIGIN- nor DEST-ward data");
++    add_cell_count(NULL, circ, CELL_CNT_NULL, cell_cnt_msg);
++    tor_free(cell_cnt_msg);
++
+     log_fn(LOG_PROTOCOL_WARN, LD_OR,
+            "Dropping unrecognized inbound cell on origin circuit.");
+     /* If we see unrecognized cells on path bias testing circs,
+@@ -1366,6 +1390,12 @@ connection_edge_process_relay_cell_not_open(
+     relay_header_t *rh, cell_t *cell, circuit_t *circ,
+     edge_connection_t *conn, crypt_path_t *layer_hint)
+ {
++  char *cell_cnt_msg = NULL;
++  tor_asprintf(&cell_cnt_msg, "|-> Connection not yet open, relay_cmd='%s'",
++               relay_command_to_string(rh->command));
++  add_cell_count(NULL, circ, CELL_CNT_NULL, cell_cnt_msg);
++  tor_free(cell_cnt_msg);
++
+   if (rh->command == RELAY_COMMAND_END) {
+     if (CIRCUIT_IS_ORIGIN(circ) && conn->base_.type == CONN_TYPE_AP) {
+       return connection_ap_process_end_not_open(rh, cell,
+@@ -1591,6 +1621,7 @@ handle_relay_cell_command(cell_t *cell, circuit_t *circ,
+                      edge_connection_t *conn, crypt_path_t *layer_hint,
+                      relay_header_t *rh, int optimistic_data)
+ {
++  char *cell_cnt_msg = NULL;
+   unsigned domain = layer_hint?LD_APP:LD_EXIT;
+   int reason;
+
+@@ -1599,10 +1630,21 @@ handle_relay_cell_command(cell_t *cell, circuit_t *circ,
+   /* First pass the cell to the circuit padding subsystem, in case it's a
+    * padding cell or circuit that should be handled there. */
+   if (circpad_check_received_cell(cell, circ, layer_hint, rh) == 0) {
++
++    tor_asprintf(&cell_cnt_msg, "|-> Cell on padding circuit, relay_cmd='%s'",
++                 relay_command_to_string(rh->command));
++    add_cell_count(NULL, circ, CELL_CNT_NULL, cell_cnt_msg);
++    tor_free(cell_cnt_msg);
++
+     log_debug(domain, "Cell handled as circuit padding");
+     return 0;
+   }
+
++  tor_asprintf(&cell_cnt_msg, "|-> relay_cmd='%s'",
++               relay_command_to_string(rh->command));
++  add_cell_count(NULL, circ, CELL_CNT_NULL, cell_cnt_msg);
++  tor_free(cell_cnt_msg);
++
+   /* Now handle all the other commands */
+   switch (rh->command) {
+     case RELAY_COMMAND_BEGIN:
+@@ -3105,6 +3147,7 @@ append_cell_to_circuit_queue(circuit_t *circ, channel_t *chan,
+                              cell_t *cell, cell_direction_t direction,
+                              streamid_t fromstream)
+ {
++  char *cell_cnt_msg = NULL;
+   or_circuit_t *orcirc = NULL;
+   cell_queue_t *queue;
+   int streams_blocked;
+@@ -3114,12 +3157,27 @@ append_cell_to_circuit_queue(circuit_t *circ, channel_t *chan,
+
+   exitward = (direction == CELL_DIRECTION_OUT);
+   if (exitward) {
++
+     queue = &circ->n_chan_cells;
+     streams_blocked = circ->streams_blocked_on_n_chan;
++
++    tor_asprintf(&cell_cnt_msg, "DEST -1: circ_prps='%s', cell_cmd='%s'",
++                 circuit_purpose_to_string(circ->purpose),
++                 cell_command_to_string(cell->command));
++    add_cell_count(NULL, circ, CELL_CNT_TO_DEST, cell_cnt_msg);
++    tor_free(cell_cnt_msg);
++
+   } else {
++
+     orcirc = TO_OR_CIRCUIT(circ);
+     queue = &orcirc->p_chan_cells;
+     streams_blocked = circ->streams_blocked_on_p_chan;
++
++    tor_asprintf(&cell_cnt_msg, "ORIGIN -1: circ_prps='%s', cell_cmd='%s'",
++                 circuit_purpose_to_string(circ->purpose),
++                 cell_command_to_string(cell->command));
++    add_cell_count(orcirc, NULL, CELL_CNT_TO_ORIGIN, cell_cnt_msg);
++    tor_free(cell_cnt_msg);
+   }
+
+   if (PREDICT_UNLIKELY(queue->n >= max_circuit_cell_queue_size)) {
