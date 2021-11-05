@@ -1,0 +1,62 @@
+# Tor state file last generated on 2000-01-01 00:59:59 local time
+# Other times below are in UTC
+# You *do not* need to edit this file.
+
+CircuitBuildTimeBin 775 3
+CircuitBuildTimeBin 825 8
+CircuitBuildTimeBin 875 9
+CircuitBuildTimeBin 925 14
+CircuitBuildTimeBin 975 60
+CircuitBuildTimeBin 1025 171
+CircuitBuildTimeBin 1075 164
+CircuitBuildTimeBin 1125 97
+CircuitBuildTimeBin 1175 123
+CircuitBuildTimeBin 1225 107
+CircuitBuildTimeBin 1275 65
+CircuitBuildTimeBin 1325 38
+CircuitBuildTimeBin 1375 31
+CircuitBuildTimeBin 1425 24
+CircuitBuildTimeBin 1475 13
+CircuitBuildTimeBin 1525 21
+CircuitBuildTimeBin 1575 13
+CircuitBuildTimeBin 1625 6
+CircuitBuildTimeBin 1675 4
+CircuitBuildTimeBin 1725 4
+CircuitBuildTimeBin 1775 1
+CircuitBuildTimeBin 1825 1
+CircuitBuildTimeBin 1875 4
+CircuitBuildTimeBin 1925 3
+CircuitBuildTimeBin 1975 2
+CircuitBuildTimeBin 2025 3
+CircuitBuildTimeBin 2125 1
+CircuitBuildTimeBin 2225 2
+CircuitBuildTimeBin 2325 2
+CircuitBuildTimeBin 2575 1
+CircuitBuildTimeBin 2825 2
+CircuitBuildTimeBin 4025 1
+CircuitBuildTimeBin 4325 1
+CircuitBuildTimeBin 4525 1
+Dormant 0
+Guard in=default rsa_id=7709BE46EA4A20EEF2623C8BAB789D62C11F2EE0 nickname=relay27guard sampled_on=1999-12-21T01:04:35 sampled_idx=0 sampled_by=0.4.4.5 listed=1
+Guard in=default rsa_id=F13DB888BFC8DAB25EEBC1C1243F107F198687C2 nickname=relay52guard sampled_on=1999-12-27T06:52:05 sampled_idx=1 sampled_by=0.4.4.5 listed=1
+Guard in=default rsa_id=BB01D36CE623D0E4E6F80F2C3BB51477CC8555AE nickname=relay26guard sampled_on=1999-12-28T18:48:19 sampled_idx=2 sampled_by=0.4.4.5 listed=1
+Guard in=default rsa_id=61697E01ADDB526C3AD8613586A5240B5156A2C6 nickname=relay35guard sampled_on=1999-12-30T07:35:47 sampled_idx=3 sampled_by=0.4.4.5 listed=1
+Guard in=default rsa_id=14D27F6F07F3AEDDD111050E5CC1CC64D9F1F87F nickname=relay54guard sampled_on=1999-12-22T06:31:07 sampled_idx=4 sampled_by=0.4.4.5 listed=1
+Guard in=default rsa_id=329E709488FB30337F3597729678CA4A7AAB83A8 nickname=relay38guard sampled_on=1999-12-31T22:40:43 sampled_idx=5 sampled_by=0.4.4.5 listed=1
+Guard in=default rsa_id=0FC4B8CFFDC5C1D0FA1272D511C34908657FDA11 nickname=relay55guard sampled_on=1999-12-22T03:58:35 sampled_idx=6 sampled_by=0.4.4.5 listed=1
+Guard in=default rsa_id=C33E5B6EE1160A64F968A10132009EB5D8956B7C nickname=relay39guard sampled_on=1999-12-30T01:30:27 sampled_idx=7 sampled_by=0.4.4.5 listed=1
+Guard in=default rsa_id=0957E1861486E964C0357703073B8C98B433DA9D nickname=relay29guard sampled_on=1999-12-29T02:17:49 sampled_idx=8 sampled_by=0.4.4.5 listed=1
+Guard in=default rsa_id=75EFF7A1EE7999529A04B944CFF6582AB64CEB01 nickname=relay32guard sampled_on=1999-12-28T14:40:57 sampled_idx=9 sampled_by=0.4.4.5 listed=1
+Guard in=default rsa_id=439AC6CC90BDF88564ED9F8C07A25B7CE92FB072 nickname=relay36guard sampled_on=1999-12-23T23:06:49 sampled_idx=10 sampled_by=0.4.4.5 listed=1
+Guard in=default rsa_id=8695D5A621757047BCA33E979EE5378B3E49C6E0 nickname=relay47guard sampled_on=1999-12-20T12:33:33 sampled_idx=11 sampled_by=0.4.4.5 listed=1
+Guard in=default rsa_id=90EB5B5016606CD3A76A693385FC3F60882B4FF2 nickname=relay33guard sampled_on=1999-12-26T23:19:09 sampled_idx=12 sampled_by=0.4.4.5 listed=1
+Guard in=default rsa_id=B16B3F89D0299EEB76E59EC170C1EB4AB54B8DFB nickname=relay53guard sampled_on=1999-12-25T20:05:45 sampled_idx=13 sampled_by=0.4.4.5 listed=1
+Guard in=default rsa_id=89B9C43293D92185703AB9EB31836DD3B8127210 nickname=relay58guard sampled_on=1999-12-27T16:12:17 sampled_idx=14 sampled_by=0.4.4.5 listed=1
+Guard in=default rsa_id=7CD9B5D5B4EA4C0A8BEF884D8FEEE410DF4C24A9 nickname=relay28guard sampled_on=1999-12-20T07:08:47 sampled_idx=15 sampled_by=0.4.4.5 listed=1
+Guard in=default rsa_id=6F46961FB891DA8814D3EBAD007EB1F31EAA96F2 nickname=relay44guard sampled_on=1999-12-29T17:18:25 sampled_idx=16 sampled_by=0.4.4.5 listed=1
+Guard in=default rsa_id=F5E5A39481F6643F56170610ED4777FCDFE0E605 nickname=relay34guard sampled_on=1999-12-26T19:09:45 sampled_idx=17 sampled_by=0.4.4.5 listed=1
+Guard in=default rsa_id=07851BA8E034C1F4241702ACEEEE889CAD601853 nickname=relay30guard sampled_on=1999-12-21T23:51:33 sampled_idx=18 sampled_by=0.4.4.5 listed=1
+Guard in=default rsa_id=9DA7BF4AD41D22BCA2EC0E3CBF285F145EC28792 nickname=relay63guard sampled_on=1999-12-20T15:16:29 sampled_idx=19 sampled_by=0.4.4.5 listed=1
+LastWritten 2000-01-01 00:59:59
+TorVersion Tor 0.4.4.5 (git-24e808e946e741d0)
+TotalBuildTimes 1000
