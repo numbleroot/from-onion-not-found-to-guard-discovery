@@ -1,0 +1,30 @@
+{
+    "start_time": "2020-09-05 12:07:48",
+    "tag": "PARAM_SWEEP_GUARD_PROB",
+    "user": "lenny",
+    "host": "tree",
+    "tbb": "/home/lenny/Work/Tor-Browser/tor-browser_en-US/",
+    "tbb_version": "9.5.3",
+    "adv_page": "/home/lenny/Work/Research/01-Tor-DoS-Attack/tor-dos-attack/src/guard-discovery/adv_website.html",
+    "chosen_addr_file": "/home/lenny/Work/Research/01-Tor-DoS-Attack/tor-dos-attack/src/guard-discovery/pregen_addr/v3_0259.addr",
+    "attack_duration": 60,
+    "log_level": "INFO",
+    "num_parallel": 1,
+    "auto_start": true,
+    "onion_ver": 3,
+    "resource_type": "js",
+    "rate_per_sec": 2.0,
+    "guard_fp": "1DC17C4A52A458B5C8B1E79157F8665696210E10",
+    "guard_or_ip": "51.15.47.17",
+    "guard_or_port": "9001",
+    "guard_dir_ip": "51.15.47.17",
+    "guard_dir_port": "9030",
+    "circuit_log_interval": 1,
+    "worker_buffer_time": 15,
+    "main_tor_buffer_time": 7,
+    "main_worker_buffer_time": 15,
+    "excluded_circ_purposes": [
+        "GENERAL"
+    ],
+    "additional_torrc_params": {}
+}

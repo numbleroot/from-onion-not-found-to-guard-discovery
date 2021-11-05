@@ -1,0 +1,30 @@
+{
+    "start_time": "2020-09-06 03:28:06",
+    "tag": "PARAM_SWEEP_GUARD_PROB",
+    "user": "gacar",
+    "host": "lnx-desktop",
+    "tbb": "/home/gacar/apps/tbb/9.5.3/tor-browser_en-US",
+    "tbb_version": "9.5.3",
+    "adv_page": "/home/gacar/dev/tor-dos-attack/src/guard-discovery/adv_website.html",
+    "chosen_addr_file": "/home/gacar/dev/tor-dos-attack/src/guard-discovery/pregen_addr/v2_0393.addr",
+    "attack_duration": 60,
+    "log_level": "INFO",
+    "num_parallel": 1,
+    "auto_start": true,
+    "onion_ver": 2,
+    "resource_type": "js",
+    "rate_per_sec": 1.0,
+    "guard_fp": "3FF88CAE0BCE85191D8DBBD0BE0E62156AB631AB",
+    "guard_or_ip": "188.165.180.9",
+    "guard_or_port": "9001",
+    "guard_dir_ip": "188.165.180.9",
+    "guard_dir_port": "9030",
+    "circuit_log_interval": 1,
+    "worker_buffer_time": 15,
+    "main_tor_buffer_time": 7,
+    "main_worker_buffer_time": 15,
+    "excluded_circ_purposes": [
+        "GENERAL"
+    ],
+    "additional_torrc_params": {}
+}

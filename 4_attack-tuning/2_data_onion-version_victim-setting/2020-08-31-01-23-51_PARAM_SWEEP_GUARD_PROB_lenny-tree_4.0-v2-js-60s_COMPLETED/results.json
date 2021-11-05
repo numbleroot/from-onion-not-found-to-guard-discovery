@@ -1,0 +1,15 @@
+{
+    "run_time_sec": 59.141,
+    "circ_built_per_sec": 19.631051216584098,
+    "hsdesc_notfound_per_sec": 18.447439170795217,
+    "circ_cnt": 1315,
+    "circ_built_cnt": 1161,
+    "circ_failed_cnt": 123,
+    "circ_undetermined_cnt": 31,
+    "hsdesc_cnt": 1173,
+    "hsdesc_recvd_cnt": 1,
+    "hsdesc_notfound_cnt": 1091,
+    "hsdesc_other_cnt": 81,
+    "failure_guard_is_hsdir_cnt": 1,
+    "failure_guard_is_hsdir_path_attempts_cnt": 517
+}
