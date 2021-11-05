@@ -1,0 +1,6 @@
+stem
+pyvirtualdisplay
+tbselenium
+pytest
+pytest-cov
+requests
