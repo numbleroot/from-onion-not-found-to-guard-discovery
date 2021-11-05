@@ -1,0 +1,16 @@
+{
+    "start_time": "2021/05/27 23:20:35",
+    "out_dir": "/<OMITTED>/2021-05-27_23-20-35_threads-20_reps-10_num-adv-hsdirs-10-15-20-25",
+    "state_dir": "/<OMITTED>/2021-05-25_13-51-04_consensus_descriptors",
+    "num_worker_procs": 20,
+    "num_repetitions": 10,
+    "num_adv_hsdirs": [
+        10,
+        15,
+        20,
+        25
+    ],
+    "period_length": 1440,
+    "hsdir_n_replicas": 2,
+    "hsdir_spread_fetch": 3
+}

@@ -1,0 +1,27 @@
+Simulation params {'n_experiments': -1, 'n_runs': 100, 'n_adv_hsdirs': 6, 'adv_bw_share': 0.01, 'n_initial_tokens': 0, 'token_refill_rate': 0, 'attack_durations': [], 'simulation_duration': 300}
+Results will be written to time_to_double_comp_6_0.01_0_0.000.json
+Runs: 286700: (h: 1.00, bw: 0.01, tb_iv: 0, tb_rr:  0.00) Median: 16.367, P90: 33.590, P99: 91.488 (FP-single: 19.73%) FINAL-CALLS - T: 99.42% F: 0.37% Nocall: 0.21%
+Simulation params {'n_experiments': -1, 'n_runs': 100, 'n_adv_hsdirs': 2, 'adv_bw_share': 0.01, 'n_initial_tokens': 0, 'token_refill_rate': 0, 'attack_durations': [], 'simulation_duration': 300}
+Results will be written to time_to_double_comp_2_0.01_0_0.000.json
+Runs: 286700: (h: 0.33, bw: 0.01, tb_iv: 0, tb_rr:  0.00) Median: 39.888, P90: 121.153, P99: 300.000 (FP-single: 19.68%) FINAL-CALLS - T: 98.85% F: 0.15% Nocall: 1.00%
+Simulation params {'n_experiments': -1, 'n_runs': 100, 'n_adv_hsdirs': 1, 'adv_bw_share': 0.01, 'n_initial_tokens': 0, 'token_refill_rate': 0, 'attack_durations': [], 'simulation_duration': 300}
+Results will be written to time_to_double_comp_1_0.01_0_0.000.json
+Runs: 286700: (h: 0.17, bw: 0.01, tb_iv: 0, tb_rr:  0.00) Median: 88.624, P90: 254.071, P99: 300.000 (FP-single: 20.22%) FINAL-CALLS - T: 93.10% F: 0.08% Nocall: 6.82%
+Simulation params {'n_experiments': -1, 'n_runs': 100, 'n_adv_hsdirs': 6, 'adv_bw_share': 0.02, 'n_initial_tokens': 0, 'token_refill_rate': 0, 'attack_durations': [], 'simulation_duration': 300}
+Results will be written to time_to_double_comp_6_0.02_0_0.000.json
+Runs: 286700: (h: 1.00, bw: 0.02, tb_iv: 0, tb_rr:  0.00) Median: 10.904, P90: 19.349, P99: 40.201 (FP-single: 19.61%) FINAL-CALLS - T: 99.63% F: 0.30% Nocall: 0.06%
+Simulation params {'n_experiments': -1, 'n_runs': 100, 'n_adv_hsdirs': 2, 'adv_bw_share': 0.02, 'n_initial_tokens': 0, 'token_refill_rate': 0, 'attack_durations': [], 'simulation_duration': 300}
+Results will be written to time_to_double_comp_2_0.02_0_0.000.json
+Runs: 286700: (h: 0.33, bw: 0.02, tb_iv: 0, tb_rr:  0.00) Median: 21.688, P90: 52.494, P99: 144.842 (FP-single: 19.50%) FINAL-CALLS - T: 99.50% F: 0.14% Nocall: 0.37%
+Simulation params {'n_experiments': -1, 'n_runs': 100, 'n_adv_hsdirs': 1, 'adv_bw_share': 0.02, 'n_initial_tokens': 0, 'token_refill_rate': 0, 'attack_durations': [], 'simulation_duration': 300}
+Results will be written to time_to_double_comp_1_0.02_0_0.000.json
+Runs: 286700: (h: 0.17, bw: 0.02, tb_iv: 0, tb_rr:  0.00) Median: 39.976, P90: 121.309, P99: 300.000 (FP-single: 19.68%) FINAL-CALLS - T: 98.90% F: 0.08% Nocall: 1.02%
+Simulation params {'n_experiments': -1, 'n_runs': 100, 'n_adv_hsdirs': 6, 'adv_bw_share': 0.05, 'n_initial_tokens': 0, 'token_refill_rate': 0, 'attack_durations': [], 'simulation_duration': 300}
+Results will be written to time_to_double_comp_6_0.05_0_0.000.json
+Runs: 286700: (h: 1.00, bw: 0.05, tb_iv: 0, tb_rr:  0.00) Median: 6.715, P90: 11.519, P99: 24.074 (FP-single: 19.49%) FINAL-CALLS - T: 99.75% F: 0.24% Nocall: 0.01%
+Simulation params {'n_experiments': -1, 'n_runs': 100, 'n_adv_hsdirs': 1, 'adv_bw_share': 0.05, 'n_initial_tokens': 0, 'token_refill_rate': 0, 'attack_durations': [], 'simulation_duration': 300}
+Results will be written to time_to_double_comp_1_0.05_0_0.000.json
+Runs: 286700: (h: 0.17, bw: 0.05, tb_iv: 0, tb_rr:  0.00) Median: 18.471, P90: 40.030, P99: 112.919 (FP-single: 19.42%) FINAL-CALLS - T: 99.63% F: 0.09% Nocall: 0.28%
+Simulation params {'n_experiments': -1, 'n_runs': 100, 'n_adv_hsdirs': 2, 'adv_bw_share': 0.05, 'n_initial_tokens': 0, 'token_refill_rate': 0, 'attack_durations': [], 'simulation_duration': 300}
+Results will be written to time_to_double_comp_2_0.05_0_0.000.json
+Runs: 286700: (h: 0.33, bw: 0.05, tb_iv: 0, tb_rr:  0.00) Median: 12.056, P90: 22.010, P99: 48.560 (FP-single: 19.41%) FINAL-CALLS - T: 99.78% F: 0.13% Nocall: 0.09%
