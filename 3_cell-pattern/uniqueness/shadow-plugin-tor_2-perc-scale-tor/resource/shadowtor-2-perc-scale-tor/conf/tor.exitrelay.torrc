@@ -1,0 +1,4 @@
+ORPort 9001
+DirPort 8080
+SocksPort 0
+ExitPolicy "accept *:*"

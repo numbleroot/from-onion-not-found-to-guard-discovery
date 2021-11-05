@@ -1,0 +1,1465 @@
+<shadow bootstraptime="300" stoptime="3600" preload="~/.shadow/lib/libshadow-interpose.so" environment="OPENSSL_ia32cap=~0x200000200000000;EVENT_NOSELECT=1;EVENT_NOPOLL=1;EVENT_NOKQUEUE=1;EVENT_NODEVPOLL=1;EVENT_NOEVPORT=1;EVENT_NOWIN32=1">
+  <topology path="conf/atlas-lossless.201801.shadow113.graphml.xml"/>
+  <plugin id="tor" path="~/.shadow/lib/libshadow-plugin-tor.so"/>
+  <plugin id="tor-preload" path="~/.shadow/lib/libshadow-preload-tor.so"/>
+  <plugin id="oniontrace" path="~/.shadow/bin/oniontrace"/>
+  <plugin id="tgen" path="~/.shadow/bin/tgen"/>
+  <host id="4uthority1" iphint="100.0.0.1" countrycodehint="FR" bandwidthdown="122070" bandwidthup="122070">
+    <process plugin="tor" preload="tor-preload" starttime="1" arguments="--Address 4uthority1 --Nickname 4uthority1 --DataDirectory shadow.data/hosts/4uthority1 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.authority.torrc"/>
+    <process plugin="oniontrace" starttime="2" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="4uthority2" iphint="100.0.0.2" countrycodehint="NL" bandwidthdown="122070" bandwidthup="122070">
+    <process plugin="tor" preload="tor-preload" starttime="1" arguments="--Address 4uthority2 --Nickname 4uthority2 --DataDirectory shadow.data/hosts/4uthority2 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.authority.torrc"/>
+    <process plugin="oniontrace" starttime="2" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="4uthority3" iphint="100.0.0.3" countrycodehint="FR" bandwidthdown="122070" bandwidthup="122070">
+    <process plugin="tor" preload="tor-preload" starttime="1" arguments="--Address 4uthority3 --Nickname 4uthority3 --DataDirectory shadow.data/hosts/4uthority3 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.authority.torrc"/>
+    <process plugin="oniontrace" starttime="2" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay1exitguard" iphint="185.100.87.206" countrycodehint="RO" bandwidthdown="50081" bandwidthup="50081">
+    <process plugin="tor" preload="tor-preload" starttime="2" arguments="--Address relay1exitguard --Nickname relay1exitguard --DataDirectory shadow.data/hosts/relay1exitguard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.exitrelay.torrc --BandwidthRate 131072000 --BandwidthBurst 157286400"/>
+    <process plugin="oniontrace" starttime="3" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay2exitguard" iphint="185.220.101.131" countrycodehint="DE" bandwidthdown="43545" bandwidthup="43545">
+    <process plugin="tor" preload="tor-preload" starttime="2" arguments="--Address relay2exitguard --Nickname relay2exitguard --DataDirectory shadow.data/hosts/relay2exitguard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.exitrelay.torrc --BandwidthRate 104857600 --BandwidthBurst 104857600"/>
+    <process plugin="oniontrace" starttime="3" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay3exitguard" iphint="185.220.101.31" countrycodehint="DE" bandwidthdown="36405" bandwidthup="36405">
+    <process plugin="tor" preload="tor-preload" starttime="2" arguments="--Address relay3exitguard --Nickname relay3exitguard --DataDirectory shadow.data/hosts/relay3exitguard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.exitrelay.torrc --BandwidthRate 104857600 --BandwidthBurst 104857600"/>
+    <process plugin="oniontrace" starttime="3" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay4exitguard" iphint="151.80.194.90" countrycodehint="FR" bandwidthdown="23175" bandwidthup="23175">
+    <process plugin="tor" preload="tor-preload" starttime="2" arguments="--Address relay4exitguard --Nickname relay4exitguard --DataDirectory shadow.data/hosts/relay4exitguard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.exitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="3" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay5exitguard" iphint="130.149.80.199" countrycodehint="DE" bandwidthdown="21323" bandwidthup="21323">
+    <process plugin="tor" preload="tor-preload" starttime="2" arguments="--Address relay5exitguard --Nickname relay5exitguard --DataDirectory shadow.data/hosts/relay5exitguard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.exitrelay.torrc --BandwidthRate 20971520 --BandwidthBurst 41943040"/>
+    <process plugin="oniontrace" starttime="3" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay6exitguard" iphint="185.220.101.243" countrycodehint="DE" bandwidthdown="21715" bandwidthup="21715">
+    <process plugin="tor" preload="tor-preload" starttime="2" arguments="--Address relay6exitguard --Nickname relay6exitguard --DataDirectory shadow.data/hosts/relay6exitguard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.exitrelay.torrc --BandwidthRate 104857600 --BandwidthBurst 104857600"/>
+    <process plugin="oniontrace" starttime="3" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay7exitguard" iphint="46.38.235.14" countrycodehint="DE" bandwidthdown="21919" bandwidthup="21919">
+    <process plugin="tor" preload="tor-preload" starttime="2" arguments="--Address relay7exitguard --Nickname relay7exitguard --DataDirectory shadow.data/hosts/relay7exitguard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.exitrelay.torrc --BandwidthRate 13107200 --BandwidthBurst 102400000"/>
+    <process plugin="oniontrace" starttime="3" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay8exitguard" iphint="91.121.251.65" countrycodehint="GB" bandwidthdown="13869" bandwidthup="13869">
+    <process plugin="tor" preload="tor-preload" starttime="2" arguments="--Address relay8exitguard --Nickname relay8exitguard --DataDirectory shadow.data/hosts/relay8exitguard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.exitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="3" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay9exitguard" iphint="104.244.78.231" countrycodehint="LU" bandwidthdown="14683" bandwidthup="14683">
+    <process plugin="tor" preload="tor-preload" starttime="2" arguments="--Address relay9exitguard --Nickname relay9exitguard --DataDirectory shadow.data/hosts/relay9exitguard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.exitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="3" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay10exitguard" iphint="198.96.155.3" countrycodehint="CA" bandwidthdown="16367" bandwidthup="16367">
+    <process plugin="tor" preload="tor-preload" starttime="2" arguments="--Address relay10exitguard --Nickname relay10exitguard --DataDirectory shadow.data/hosts/relay10exitguard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.exitrelay.torrc --BandwidthRate 104857600 --BandwidthBurst 157286400"/>
+    <process plugin="oniontrace" starttime="3" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay11exitguard" iphint="199.249.230.70" countrycodehint="US" bandwidthdown="17420" bandwidthup="17420">
+    <process plugin="tor" preload="tor-preload" starttime="2" arguments="--Address relay11exitguard --Nickname relay11exitguard --DataDirectory shadow.data/hosts/relay11exitguard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.exitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="3" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay12exitguard" iphint="51.79.86.180" countrycodehint="CA" bandwidthdown="11435" bandwidthup="11435">
+    <process plugin="tor" preload="tor-preload" starttime="2" arguments="--Address relay12exitguard --Nickname relay12exitguard --DataDirectory shadow.data/hosts/relay12exitguard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.exitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="3" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay13exitguard" iphint="104.244.72.99" countrycodehint="US" bandwidthdown="11598" bandwidthup="11598">
+    <process plugin="tor" preload="tor-preload" starttime="2" arguments="--Address relay13exitguard --Nickname relay13exitguard --DataDirectory shadow.data/hosts/relay13exitguard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.exitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="3" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay14exitguard" iphint="209.141.50.168" countrycodehint="US" bandwidthdown="9955" bandwidthup="9955">
+    <process plugin="tor" preload="tor-preload" starttime="2" arguments="--Address relay14exitguard --Nickname relay14exitguard --DataDirectory shadow.data/hosts/relay14exitguard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.exitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="3" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay15exitguard" iphint="198.98.61.88" countrycodehint="US" bandwidthdown="11351" bandwidthup="11351">
+    <process plugin="tor" preload="tor-preload" starttime="2" arguments="--Address relay15exitguard --Nickname relay15exitguard --DataDirectory shadow.data/hosts/relay15exitguard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.exitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="3" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay16exitguard" iphint="31.185.104.20" countrycodehint="DE" bandwidthdown="4231" bandwidthup="4231">
+    <process plugin="tor" preload="tor-preload" starttime="2" arguments="--Address relay16exitguard --Nickname relay16exitguard --DataDirectory shadow.data/hosts/relay16exitguard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.exitrelay.torrc --BandwidthRate 4325376 --BandwidthBurst 6553600"/>
+    <process plugin="oniontrace" starttime="3" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay17exitguard" iphint="176.123.3.222" countrycodehint="MD" bandwidthdown="5166" bandwidthup="5166">
+    <process plugin="tor" preload="tor-preload" starttime="2" arguments="--Address relay17exitguard --Nickname relay17exitguard --DataDirectory shadow.data/hosts/relay17exitguard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.exitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="3" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay18exit" iphint="147.135.136.241" countrycodehint="FR" bandwidthdown="28409" bandwidthup="28409">
+    <process plugin="tor" preload="tor-preload" starttime="3" arguments="--Address relay18exit --Nickname relay18exit --DataDirectory shadow.data/hosts/relay18exit --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.exitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="4" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay19exit" iphint="139.60.162.34" countrycodehint="US" bandwidthdown="46677" bandwidthup="46677">
+    <process plugin="tor" preload="tor-preload" starttime="3" arguments="--Address relay19exit --Nickname relay19exit --DataDirectory shadow.data/hosts/relay19exit --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.exitrelay.torrc --BandwidthRate 104857600 --BandwidthBurst 314572800"/>
+    <process plugin="oniontrace" starttime="4" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay20exit" iphint="23.129.64.194" countrycodehint="US" bandwidthdown="11786" bandwidthup="11786">
+    <process plugin="tor" preload="tor-preload" starttime="3" arguments="--Address relay20exit --Nickname relay20exit --DataDirectory shadow.data/hosts/relay20exit --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.exitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="4" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay21exit" iphint="167.114.89.199" countrycodehint="CA" bandwidthdown="14801" bandwidthup="14801">
+    <process plugin="tor" preload="tor-preload" starttime="3" arguments="--Address relay21exit --Nickname relay21exit --DataDirectory shadow.data/hosts/relay21exit --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.exitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="4" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay22exit" iphint="200.56.44.184" countrycodehint="MX" bandwidthdown="4314" bandwidthup="4314">
+    <process plugin="tor" preload="tor-preload" starttime="3" arguments="--Address relay22exit --Nickname relay22exit --DataDirectory shadow.data/hosts/relay22exit --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.exitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="4" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay23exit" iphint="71.19.249.18" countrycodehint="CA" bandwidthdown="3918" bandwidthup="3918">
+    <process plugin="tor" preload="tor-preload" starttime="3" arguments="--Address relay23exit --Nickname relay23exit --DataDirectory shadow.data/hosts/relay23exit --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.exitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="4" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay24exit" iphint="64.120.110.27" countrycodehint="SG" bandwidthdown="2696" bandwidthup="2696">
+    <process plugin="tor" preload="tor-preload" starttime="3" arguments="--Address relay24exit --Nickname relay24exit --DataDirectory shadow.data/hosts/relay24exit --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.exitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="4" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay25exit" iphint="182.78.178.187" countrycodehint="IN" bandwidthdown="342" bandwidthup="342">
+    <process plugin="tor" preload="tor-preload" starttime="3" arguments="--Address relay25exit --Nickname relay25exit --DataDirectory shadow.data/hosts/relay25exit --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.exitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="4" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay26guard" iphint="54.36.205.38" countrycodehint="FR" bandwidthdown="65622" bandwidthup="65622">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay26guard --Nickname relay26guard --DataDirectory shadow.data/hosts/relay26guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 268435456 --BandwidthBurst 335544320"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay27guard" iphint="51.75.129.204" countrycodehint="FR" bandwidthdown="51821" bandwidthup="51821">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay27guard --Nickname relay27guard --DataDirectory shadow.data/hosts/relay27guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay28guard" iphint="185.21.216.198" countrycodehint="GB" bandwidthdown="41672" bandwidthup="41672">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay28guard --Nickname relay28guard --DataDirectory shadow.data/hosts/relay28guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay29guard" iphint="195.201.168.111" countrycodehint="DE" bandwidthdown="32958" bandwidthup="32958">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay29guard --Nickname relay29guard --DataDirectory shadow.data/hosts/relay29guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 31457280 --BandwidthBurst 73400320"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay30guard" iphint="193.30.123.176" countrycodehint="DE" bandwidthdown="34710" bandwidthup="34710">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay30guard --Nickname relay30guard --DataDirectory shadow.data/hosts/relay30guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay31guard" iphint="51.158.166.230" countrycodehint="FR" bandwidthdown="35330" bandwidthup="35330">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay31guard --Nickname relay31guard --DataDirectory shadow.data/hosts/relay31guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay32guard" iphint="213.112.89.78" countrycodehint="SE" bandwidthdown="34359" bandwidthup="34359">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay32guard --Nickname relay32guard --DataDirectory shadow.data/hosts/relay32guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 65536000 --BandwidthBurst 78643200"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay33guard" iphint="94.16.123.67" countrycodehint="DE" bandwidthdown="22311" bandwidthup="22311">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay33guard --Nickname relay33guard --DataDirectory shadow.data/hosts/relay33guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 27262976 --BandwidthBurst 54525952"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay34guard" iphint="45.9.148.31" countrycodehint="NL" bandwidthdown="16644" bandwidthup="16644">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay34guard --Nickname relay34guard --DataDirectory shadow.data/hosts/relay34guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 25165824 --BandwidthBurst 33554432"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay35guard" iphint="51.15.128.2" countrycodehint="FR" bandwidthdown="17949" bandwidthup="17949">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay35guard --Nickname relay35guard --DataDirectory shadow.data/hosts/relay35guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay36guard" iphint="51.15.34.165" countrycodehint="NL" bandwidthdown="17692" bandwidthup="17692">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay36guard --Nickname relay36guard --DataDirectory shadow.data/hosts/relay36guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 29491200 --BandwidthBurst 39321600"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay37guard" iphint="185.82.126.137" countrycodehint="LV" bandwidthdown="20886" bandwidthup="20886">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay37guard --Nickname relay37guard --DataDirectory shadow.data/hosts/relay37guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay38guard" iphint="81.169.167.88" countrycodehint="DE" bandwidthdown="11689" bandwidthup="11689">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay38guard --Nickname relay38guard --DataDirectory shadow.data/hosts/relay38guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay39guard" iphint="95.211.210.72" countrycodehint="NL" bandwidthdown="11191" bandwidthup="11191">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay39guard --Nickname relay39guard --DataDirectory shadow.data/hosts/relay39guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay40guard" iphint="212.69.166.122" countrycodehint="AT" bandwidthdown="15437" bandwidthup="15437">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay40guard --Nickname relay40guard --DataDirectory shadow.data/hosts/relay40guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay41guard" iphint="5.9.137.167" countrycodehint="DE" bandwidthdown="10307" bandwidthup="10307">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay41guard --Nickname relay41guard --DataDirectory shadow.data/hosts/relay41guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 10485760 --BandwidthBurst 10485760"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay42guard" iphint="62.171.145.37" countrycodehint="DE" bandwidthdown="11916" bandwidthup="11916">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay42guard --Nickname relay42guard --DataDirectory shadow.data/hosts/relay42guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 11264000 --BandwidthBurst 16384000"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay43guard" iphint="92.222.22.113" countrycodehint="FR" bandwidthdown="12933" bandwidthup="12933">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay43guard --Nickname relay43guard --DataDirectory shadow.data/hosts/relay43guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay44guard" iphint="37.191.196.246" countrycodehint="NO" bandwidthdown="17135" bandwidthup="17135">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay44guard --Nickname relay44guard --DataDirectory shadow.data/hosts/relay44guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay45guard" iphint="95.216.181.15" countrycodehint="FI" bandwidthdown="9744" bandwidthup="9744">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay45guard --Nickname relay45guard --DataDirectory shadow.data/hosts/relay45guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 10240000 --BandwidthBurst 12288000"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay46guard" iphint="91.143.87.51" countrycodehint="DE" bandwidthdown="11885" bandwidthup="11885">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay46guard --Nickname relay46guard --DataDirectory shadow.data/hosts/relay46guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 10240000 --BandwidthBurst 20480000"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay47guard" iphint="37.252.188.101" countrycodehint="AT" bandwidthdown="8015" bandwidthup="8015">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay47guard --Nickname relay47guard --DataDirectory shadow.data/hosts/relay47guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 8192000 --BandwidthBurst 12288000"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay48guard" iphint="163.172.180.42" countrycodehint="FR" bandwidthdown="10311" bandwidthup="10311">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay48guard --Nickname relay48guard --DataDirectory shadow.data/hosts/relay48guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay49guard" iphint="81.157.142.9" countrycodehint="GB" bandwidthdown="6046" bandwidthup="6046">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay49guard --Nickname relay49guard --DataDirectory shadow.data/hosts/relay49guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay50guard" iphint="149.56.45.200" countrycodehint="CA" bandwidthdown="9412" bandwidthup="9412">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay50guard --Nickname relay50guard --DataDirectory shadow.data/hosts/relay50guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 10240000 --BandwidthBurst 10240000"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay51guard" iphint="85.167.122.23" countrycodehint="NO" bandwidthdown="7426" bandwidthup="7426">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay51guard --Nickname relay51guard --DataDirectory shadow.data/hosts/relay51guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 6710886 --BandwidthBurst 10485760"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay52guard" iphint="185.163.45.29" countrycodehint="MD" bandwidthdown="10951" bandwidthup="10951">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay52guard --Nickname relay52guard --DataDirectory shadow.data/hosts/relay52guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay53guard" iphint="81.237.206.224" countrycodehint="SE" bandwidthdown="9304" bandwidthup="9304">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay53guard --Nickname relay53guard --DataDirectory shadow.data/hosts/relay53guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay54guard" iphint="195.123.209.7" countrycodehint="LV" bandwidthdown="10083" bandwidthup="10083">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay54guard --Nickname relay54guard --DataDirectory shadow.data/hosts/relay54guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay55guard" iphint="108.53.168.46" countrycodehint="US" bandwidthdown="6348" bandwidthup="6348">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay55guard --Nickname relay55guard --DataDirectory shadow.data/hosts/relay55guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 6553600 --BandwidthBurst 9175040"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay56guard" iphint="178.202.156.12" countrycodehint="DE" bandwidthdown="5122" bandwidthup="5122">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay56guard --Nickname relay56guard --DataDirectory shadow.data/hosts/relay56guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay57guard" iphint="80.66.135.123" countrycodehint="BE" bandwidthdown="11585" bandwidthup="11585">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay57guard --Nickname relay57guard --DataDirectory shadow.data/hosts/relay57guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay58guard" iphint="176.107.176.31" countrycodehint="UA" bandwidthdown="7738" bandwidthup="7738">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay58guard --Nickname relay58guard --DataDirectory shadow.data/hosts/relay58guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay59guard" iphint="207.180.221.73" countrycodehint="DE" bandwidthdown="4158" bandwidthup="4158">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay59guard --Nickname relay59guard --DataDirectory shadow.data/hosts/relay59guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 4182016 --BandwidthBurst 4694016"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay60guard" iphint="103.136.43.183" countrycodehint="RU" bandwidthdown="6131" bandwidthup="6131">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay60guard --Nickname relay60guard --DataDirectory shadow.data/hosts/relay60guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay61guard" iphint="141.14.220.177" countrycodehint="DE" bandwidthdown="15567" bandwidthup="15567">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay61guard --Nickname relay61guard --DataDirectory shadow.data/hosts/relay61guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 2621440 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay62guard" iphint="137.50.19.11" countrycodehint="GB" bandwidthdown="4059" bandwidthup="4059">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay62guard --Nickname relay62guard --DataDirectory shadow.data/hosts/relay62guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 2935808 --BandwidthBurst 16588800"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay63guard" iphint="141.155.5.128" countrycodehint="US" bandwidthdown="6420" bandwidthup="6420">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay63guard --Nickname relay63guard --DataDirectory shadow.data/hosts/relay63guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay64guard" iphint="104.37.193.102" countrycodehint="CA" bandwidthdown="5145" bandwidthup="5145">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay64guard --Nickname relay64guard --DataDirectory shadow.data/hosts/relay64guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 52428800 --BandwidthBurst 67108864"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay65guard" iphint="64.149.142.161" countrycodehint="US" bandwidthdown="4587" bandwidthup="4587">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay65guard --Nickname relay65guard --DataDirectory shadow.data/hosts/relay65guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay66guard" iphint="95.222.96.172" countrycodehint="DE" bandwidthdown="2456" bandwidthup="2456">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay66guard --Nickname relay66guard --DataDirectory shadow.data/hosts/relay66guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 2560000 --BandwidthBurst 3584000"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay67guard" iphint="167.71.141.243" countrycodehint="GB" bandwidthdown="2705" bandwidthup="2705">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay67guard --Nickname relay67guard --DataDirectory shadow.data/hosts/relay67guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 2228224 --BandwidthBurst 8912896"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay68guard" iphint="45.62.230.216" countrycodehint="CA" bandwidthdown="4054" bandwidthup="4054">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay68guard --Nickname relay68guard --DataDirectory shadow.data/hosts/relay68guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay69guard" iphint="95.154.25.167" countrycodehint="DK" bandwidthdown="2339" bandwidthup="2339">
+    <process plugin="tor" preload="tor-preload" starttime="4" arguments="--Address relay69guard --Nickname relay69guard --DataDirectory shadow.data/hosts/relay69guard --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 2176000 --BandwidthBurst 3200000"/>
+    <process plugin="oniontrace" starttime="5" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay70middle" iphint="51.158.69.118" countrycodehint="FR" bandwidthdown="28745" bandwidthup="28745">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay70middle --Nickname relay70middle --DataDirectory shadow.data/hosts/relay70middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay71middle" iphint="46.38.255.165" countrycodehint="DE" bandwidthdown="17046" bandwidthup="17046">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay71middle --Nickname relay71middle --DataDirectory shadow.data/hosts/relay71middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 83886080 --BandwidthBurst 104857600"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay72middle" iphint="116.203.149.9" countrycodehint="DE" bandwidthdown="11170" bandwidthup="11170">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay72middle --Nickname relay72middle --DataDirectory shadow.data/hosts/relay72middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 10485760 --BandwidthBurst 25165824"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay73middle" iphint="78.46.201.168" countrycodehint="DE" bandwidthdown="19995" bandwidthup="19995">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay73middle --Nickname relay73middle --DataDirectory shadow.data/hosts/relay73middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay74middle" iphint="84.227.252.102" countrycodehint="CH" bandwidthdown="8485" bandwidthup="8485">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay74middle --Nickname relay74middle --DataDirectory shadow.data/hosts/relay74middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 125829120 --BandwidthBurst 146800640"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay75middle" iphint="163.172.165.157" countrycodehint="FR" bandwidthdown="9839" bandwidthup="9839">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay75middle --Nickname relay75middle --DataDirectory shadow.data/hosts/relay75middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay76middle" iphint="188.119.67.168" countrycodehint="RU" bandwidthdown="6329" bandwidthup="6329">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay76middle --Nickname relay76middle --DataDirectory shadow.data/hosts/relay76middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 6553600 --BandwidthBurst 9830400"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay77middle" iphint="46.229.55.118" countrycodehint="UA" bandwidthdown="4877" bandwidthup="4877">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay77middle --Nickname relay77middle --DataDirectory shadow.data/hosts/relay77middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 5242880 --BandwidthBurst 5347737"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay78middle" iphint="47.144.67.35" countrycodehint="US" bandwidthdown="7149" bandwidthup="7149">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay78middle --Nickname relay78middle --DataDirectory shadow.data/hosts/relay78middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay79middle" iphint="82.64.135.204" countrycodehint="FR" bandwidthdown="4139" bandwidthup="4139">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay79middle --Nickname relay79middle --DataDirectory shadow.data/hosts/relay79middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 4194304 --BandwidthBurst 6291456"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay80middle" iphint="89.34.27.21" countrycodehint="RO" bandwidthdown="8080" bandwidthup="8080">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay80middle --Nickname relay80middle --DataDirectory shadow.data/hosts/relay80middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay81middle" iphint="81.170.155.6" countrycodehint="SE" bandwidthdown="3514" bandwidthup="3514">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay81middle --Nickname relay81middle --DataDirectory shadow.data/hosts/relay81middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 3145728 --BandwidthBurst 5242880"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay82middle" iphint="85.212.144.137" countrycodehint="DE" bandwidthdown="3232" bandwidthup="3232">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay82middle --Nickname relay82middle --DataDirectory shadow.data/hosts/relay82middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 3276800 --BandwidthBurst 3276800"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay83middle" iphint="46.87.210.224" countrycodehint="DE" bandwidthdown="3360" bandwidthup="3360">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay83middle --Nickname relay83middle --DataDirectory shadow.data/hosts/relay83middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay84middle" iphint="83.135.88.29" countrycodehint="DE" bandwidthdown="2398" bandwidthup="2398">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay84middle --Nickname relay84middle --DataDirectory shadow.data/hosts/relay84middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay85middle" iphint="2.244.145.227" countrycodehint="DE" bandwidthdown="2290" bandwidthup="2290">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay85middle --Nickname relay85middle --DataDirectory shadow.data/hosts/relay85middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 2457600 --BandwidthBurst 2867200"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay86middle" iphint="194.126.175.157" countrycodehint="NL" bandwidthdown="3452" bandwidthup="3452">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay86middle --Nickname relay86middle --DataDirectory shadow.data/hosts/relay86middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1536000 --BandwidthBurst 4096000"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay87middle" iphint="23.108.49.254" countrycodehint="US" bandwidthdown="7449" bandwidthup="7449">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay87middle --Nickname relay87middle --DataDirectory shadow.data/hosts/relay87middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay88middle" iphint="207.154.192.183" countrycodehint="DE" bandwidthdown="1602" bandwidthup="1602">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay88middle --Nickname relay88middle --DataDirectory shadow.data/hosts/relay88middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1572864 --BandwidthBurst 3145728"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay89middle" iphint="2.10.193.16" countrycodehint="FR" bandwidthdown="1676" bandwidthup="1676">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay89middle --Nickname relay89middle --DataDirectory shadow.data/hosts/relay89middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1468006 --BandwidthBurst 3145728"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay90middle" iphint="173.255.250.203" countrycodehint="US" bandwidthdown="4634" bandwidthup="4634">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay90middle --Nickname relay90middle --DataDirectory shadow.data/hosts/relay90middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay91middle" iphint="198.58.103.47" countrycodehint="US" bandwidthdown="4148" bandwidthup="4148">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay91middle --Nickname relay91middle --DataDirectory shadow.data/hosts/relay91middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay92middle" iphint="50.193.143.42" countrycodehint="US" bandwidthdown="1468" bandwidthup="1468">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay92middle --Nickname relay92middle --DataDirectory shadow.data/hosts/relay92middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 4096000 --BandwidthBurst 4096000"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay93middle" iphint="35.180.173.18" countrycodehint="FR" bandwidthdown="1083" bandwidthup="1083">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay93middle --Nickname relay93middle --DataDirectory shadow.data/hosts/relay93middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1048576 --BandwidthBurst 2097152"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay94middle" iphint="24.47.191.118" countrycodehint="US" bandwidthdown="1024" bandwidthup="1024">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay94middle --Nickname relay94middle --DataDirectory shadow.data/hosts/relay94middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1048576 --BandwidthBurst 2097152"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay95middle" iphint="213.239.217.68" countrycodehint="DE" bandwidthdown="1091" bandwidthup="1091">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay95middle --Nickname relay95middle --DataDirectory shadow.data/hosts/relay95middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1024000 --BandwidthBurst 1945600"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay96middle" iphint="170.254.16.37" countrycodehint="BZ" bandwidthdown="2661" bandwidthup="2661">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay96middle --Nickname relay96middle --DataDirectory shadow.data/hosts/relay96middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 4194304 --BandwidthBurst 6291456"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay97middle" iphint="54.36.112.244" countrycodehint="DE" bandwidthdown="1089" bandwidthup="1089">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay97middle --Nickname relay97middle --DataDirectory shadow.data/hosts/relay97middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1024000 --BandwidthBurst 2048000"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay98middle" iphint="165.22.57.151" countrycodehint="SG" bandwidthdown="2370" bandwidthup="2370">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay98middle --Nickname relay98middle --DataDirectory shadow.data/hosts/relay98middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay99middle" iphint="159.89.205.184" countrycodehint="SG" bandwidthdown="2305" bandwidthup="2305">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay99middle --Nickname relay99middle --DataDirectory shadow.data/hosts/relay99middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay100middle" iphint="165.227.107.198" countrycodehint="US" bandwidthdown="1053" bandwidthup="1053">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay100middle --Nickname relay100middle --DataDirectory shadow.data/hosts/relay100middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1024000 --BandwidthBurst 2048000"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay101middle" iphint="86.123.52.188" countrycodehint="RO" bandwidthdown="929" bandwidthup="929">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay101middle --Nickname relay101middle --DataDirectory shadow.data/hosts/relay101middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1024000 --BandwidthBurst 1024000"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay102middle" iphint="128.199.222.114" countrycodehint="SG" bandwidthdown="2754" bandwidthup="2754">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay102middle --Nickname relay102middle --DataDirectory shadow.data/hosts/relay102middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay103middle" iphint="82.36.64.183" countrycodehint="GB" bandwidthdown="1216" bandwidthup="1216">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay103middle --Nickname relay103middle --DataDirectory shadow.data/hosts/relay103middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 819200 --BandwidthBurst 1228800"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay104middle" iphint="173.212.222.109" countrycodehint="DE" bandwidthdown="830" bandwidthup="830">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay104middle --Nickname relay104middle --DataDirectory shadow.data/hosts/relay104middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 665600 --BandwidthBurst 2457600"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay105middle" iphint="79.143.186.17" countrycodehint="DE" bandwidthdown="789" bandwidthup="789">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay105middle --Nickname relay105middle --DataDirectory shadow.data/hosts/relay105middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 614400 --BandwidthBurst 1433600"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay106middle" iphint="202.157.177.224" countrycodehint="MY" bandwidthdown="1577" bandwidthup="1577">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay106middle --Nickname relay106middle --DataDirectory shadow.data/hosts/relay106middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay107middle" iphint="185.38.151.56" countrycodehint="GB" bandwidthdown="547" bandwidthup="547">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay107middle --Nickname relay107middle --DataDirectory shadow.data/hosts/relay107middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 524288 --BandwidthBurst 786432"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay108middle" iphint="51.15.34.138" countrycodehint="NL" bandwidthdown="6548" bandwidthup="6548">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay108middle --Nickname relay108middle --DataDirectory shadow.data/hosts/relay108middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay109middle" iphint="114.45.13.37" countrycodehint="TW" bandwidthdown="1097" bandwidthup="1097">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay109middle --Nickname relay109middle --DataDirectory shadow.data/hosts/relay109middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 41943040 --BandwidthBurst 52428800"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay110middle" iphint="216.154.54.10" countrycodehint="CA" bandwidthdown="795" bandwidthup="795">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay110middle --Nickname relay110middle --DataDirectory shadow.data/hosts/relay110middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 512000 --BandwidthBurst 1280000"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay111middle" iphint="47.49.35.242" countrycodehint="US" bandwidthdown="683" bandwidthup="683">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay111middle --Nickname relay111middle --DataDirectory shadow.data/hosts/relay111middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 640000 --BandwidthBurst 640000"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay112middle" iphint="13.239.97.198" countrycodehint="AU" bandwidthdown="1067" bandwidthup="1067">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay112middle --Nickname relay112middle --DataDirectory shadow.data/hosts/relay112middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1073741824 --BandwidthBurst 2147483647"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay113middle" iphint="193.104.220.35" countrycodehint="DE" bandwidthdown="3370" bandwidthup="3370">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay113middle --Nickname relay113middle --DataDirectory shadow.data/hosts/relay113middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 409600 --BandwidthBurst 1048576"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay114middle" iphint="95.109.122.52" countrycodehint="SE" bandwidthdown="429" bandwidthup="429">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay114middle --Nickname relay114middle --DataDirectory shadow.data/hosts/relay114middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 400000 --BandwidthBurst 650000"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay115middle" iphint="185.8.177.152" countrycodehint="NL" bandwidthdown="344" bandwidthup="344">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay115middle --Nickname relay115middle --DataDirectory shadow.data/hosts/relay115middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 356770 --BandwidthBurst 384260"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay116middle" iphint="220.233.28.71" countrycodehint="AU" bandwidthdown="798" bandwidthup="798">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay116middle --Nickname relay116middle --DataDirectory shadow.data/hosts/relay116middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 819200 --BandwidthBurst 1638400"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay117middle" iphint="95.211.153.12" countrycodehint="NL" bandwidthdown="458" bandwidthup="458">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay117middle --Nickname relay117middle --DataDirectory shadow.data/hosts/relay117middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 320400 --BandwidthBurst 539730"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay118middle" iphint="85.119.82.65" countrycodehint="GB" bandwidthdown="2055" bandwidthup="2055">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay118middle --Nickname relay118middle --DataDirectory shadow.data/hosts/relay118middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1280000 --BandwidthBurst 1280000"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay119middle" iphint="94.79.137.182" countrycodehint="DE" bandwidthdown="312" bandwidthup="312">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay119middle --Nickname relay119middle --DataDirectory shadow.data/hosts/relay119middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 262144 --BandwidthBurst 524288"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay120middle" iphint="94.107.130.118" countrycodehint="BE" bandwidthdown="853" bandwidthup="853">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay120middle --Nickname relay120middle --DataDirectory shadow.data/hosts/relay120middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 4194304 --BandwidthBurst 6291456"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay121middle" iphint="45.15.16.133" countrycodehint="SE" bandwidthdown="218" bandwidthup="218">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay121middle --Nickname relay121middle --DataDirectory shadow.data/hosts/relay121middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 204800 --BandwidthBurst 409600"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay122middle" iphint="110.141.238.136" countrycodehint="AU" bandwidthdown="258" bandwidthup="258">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay122middle --Nickname relay122middle --DataDirectory shadow.data/hosts/relay122middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 256000 --BandwidthBurst 409600"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay123middle" iphint="74.91.27.30" countrycodehint="US" bandwidthdown="204" bandwidthup="204">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay123middle --Nickname relay123middle --DataDirectory shadow.data/hosts/relay123middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 204800 --BandwidthBurst 307200"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay124middle" iphint="185.165.171.14" countrycodehint="SC" bandwidthdown="1116" bandwidthup="1116">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay124middle --Nickname relay124middle --DataDirectory shadow.data/hosts/relay124middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 131072 --BandwidthBurst 393216"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay125middle" iphint="176.114.248.47" countrycodehint="CZ" bandwidthdown="133" bandwidthup="133">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay125middle --Nickname relay125middle --DataDirectory shadow.data/hosts/relay125middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 128000 --BandwidthBurst 179200"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay126middle" iphint="3.92.225.220" countrycodehint="US" bandwidthdown="111" bandwidthup="111">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay126middle --Nickname relay126middle --DataDirectory shadow.data/hosts/relay126middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 102400 --BandwidthBurst 204800"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay127middle" iphint="208.113.133.247" countrycodehint="US" bandwidthdown="128" bandwidthup="128">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay127middle --Nickname relay127middle --DataDirectory shadow.data/hosts/relay127middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 102400 --BandwidthBurst 204800"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay128middle" iphint="179.43.188.206" countrycodehint="CH" bandwidthdown="226" bandwidthup="226">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay128middle --Nickname relay128middle --DataDirectory shadow.data/hosts/relay128middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 3932160 --BandwidthBurst 1073741824"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay129middle" iphint="212.11.64.100" countrycodehint="GB" bandwidthdown="3589" bandwidthup="3589">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay129middle --Nickname relay129middle --DataDirectory shadow.data/hosts/relay129middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 1048576000 --BandwidthBurst 1179648000"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="relay130middle" iphint="86.46.24.216" countrycodehint="IE" bandwidthdown="106" bandwidthup="106">
+    <process plugin="tor" preload="tor-preload" starttime="5" arguments="--Address relay130middle --Nickname relay130middle --DataDirectory shadow.data/hosts/relay130middle --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.nonexitrelay.torrc --BandwidthRate 4194304 --BandwidthBurst 6291456"/>
+    <process plugin="oniontrace" starttime="6" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+  </host>
+  <host id="server1" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-server.tgenrc.graphml"/>
+  </host>
+  <host id="server2" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-server.tgenrc.graphml"/>
+  </host>
+  <host id="server3" countrycodehint="de" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-server.tgenrc.graphml"/>
+  </host>
+  <host id="server4" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-server.tgenrc.graphml"/>
+  </host>
+  <host id="server5" countrycodehint="fr" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-server.tgenrc.graphml"/>
+  </host>
+  <host id="server6" countrycodehint="it" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-server.tgenrc.graphml"/>
+  </host>
+  <host id="server7" countrycodehint="pk" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-server.tgenrc.graphml"/>
+  </host>
+  <host id="server8" countrycodehint="ru" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-server.tgenrc.graphml"/>
+  </host>
+  <host id="server9" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-server.tgenrc.graphml"/>
+  </host>
+  <host id="server10" countrycodehint="de" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-server.tgenrc.graphml"/>
+  </host>
+  <host id="server11" countrycodehint="bd" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-server.tgenrc.graphml"/>
+  </host>
+  <host id="server12" countrycodehint="ir" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-server.tgenrc.graphml"/>
+  </host>
+  <host id="server13" countrycodehint="my" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="120" arguments="--Address server13 --Nickname server13 --DataDirectory shadow.data/hosts/server13 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.hiddenserver13.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824" />
+    <process plugin="oniontrace" starttime="121" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-hiddenserver.tgenrc.graphml"/>
+  </host>
+  <host id="server14" countrycodehint="nl" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="120" arguments="--Address server14 --Nickname server14 --DataDirectory shadow.data/hosts/server14 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.hiddenserver14.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824" />
+    <process plugin="oniontrace" starttime="121" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-hiddenserver.tgenrc.graphml"/>
+  </host>
+  <host id="server15" countrycodehint="ru" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="120" arguments="--Address server15 --Nickname server15 --DataDirectory shadow.data/hosts/server15 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.hiddenserver15.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824" />
+    <process plugin="oniontrace" starttime="121" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-hiddenserver.tgenrc.graphml"/>
+  </host>
+  <host id="server16" countrycodehint="ie" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="120" arguments="--Address server16 --Nickname server16 --DataDirectory shadow.data/hosts/server16 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.hiddenserver16.torrc --BandwidthRate 1073741824 --BandwidthBurst 1073741824" />
+    <process plugin="oniontrace" starttime="121" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-hiddenserver.tgenrc.graphml"/>
+  </host>
+  <host id="perfclient1" countrycodehint="US" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address perfclient1 --Nickname perfclient1 --DataDirectory shadow.data/hosts/perfclient1 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.perfclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-perf.tgenrc.graphml"/>
+  </host>
+  <host id="perfclient2" countrycodehint="NL" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address perfclient2 --Nickname perfclient2 --DataDirectory shadow.data/hosts/perfclient2 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.perfclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-perf.tgenrc.graphml"/>
+  </host>
+  <host id="perfclient3" countrycodehint="AB" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address perfclient3 --Nickname perfclient3 --DataDirectory shadow.data/hosts/perfclient3 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.perfclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-perf.tgenrc.graphml"/>
+  </host>
+  <host id="perfclient4" countrycodehint="HK" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address perfclient4 --Nickname perfclient4 --DataDirectory shadow.data/hosts/perfclient4 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.perfclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-perf.tgenrc.graphml"/>
+  </host>
+  <host id="perfclient5" countrycodehint="NL" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address perfclient5 --Nickname perfclient5 --DataDirectory shadow.data/hosts/perfclient5 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.perfclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-perf.tgenrc.graphml"/>
+  </host>
+  <host id="perfclient6" countrycodehint="AB" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address perfclient6 --Nickname perfclient6 --DataDirectory shadow.data/hosts/perfclient6 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.perfclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-perf.tgenrc.graphml"/>
+  </host>
+  <host id="perfclient7" countrycodehint="NL" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address perfclient7 --Nickname perfclient7 --DataDirectory shadow.data/hosts/perfclient7 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.perfclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-perf.tgenrc.graphml"/>
+  </host>
+  <host id="perfclient8" countrycodehint="HK" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address perfclient8 --Nickname perfclient8 --DataDirectory shadow.data/hosts/perfclient8 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.perfclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-perf.tgenrc.graphml"/>
+  </host>
+  <host id="perfclient9" countrycodehint="NL" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address perfclient9 --Nickname perfclient9 --DataDirectory shadow.data/hosts/perfclient9 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.perfclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-perf.tgenrc.graphml"/>
+  </host>
+  <host id="perfclient10" countrycodehint="HK" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address perfclient10 --Nickname perfclient10 --DataDirectory shadow.data/hosts/perfclient10 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.perfclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-perf.tgenrc.graphml"/>
+  </host>
+  <host id="perfclient11" countrycodehint="NL" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address perfclient11 --Nickname perfclient11 --DataDirectory shadow.data/hosts/perfclient11 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.perfclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-perf.tgenrc.graphml"/>
+  </host>
+  <host id="perfclient12" countrycodehint="HK" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address perfclient12 --Nickname perfclient12 --DataDirectory shadow.data/hosts/perfclient12 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.perfclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-perf.tgenrc.graphml"/>
+  </host>
+  <host id="perfclient13" countrycodehint="US" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address perfclient13 --Nickname perfclient13 --DataDirectory shadow.data/hosts/perfclient13 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.perfclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-perf.tgenrc.graphml"/>
+  </host>
+  <host id="perfclient14" countrycodehint="US" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address perfclient14 --Nickname perfclient14 --DataDirectory shadow.data/hosts/perfclient14 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.perfclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-perf.tgenrc.graphml"/>
+  </host>
+  <host id="perfclient15" countrycodehint="NL" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address perfclient15 --Nickname perfclient15 --DataDirectory shadow.data/hosts/perfclient15 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.perfclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-perf.tgenrc.graphml"/>
+  </host>
+  <host id="perfclient16" countrycodehint="HK" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address perfclient16 --Nickname perfclient16 --DataDirectory shadow.data/hosts/perfclient16 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.perfclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-perf.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient1" countrycodehint="ru" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient1 --Nickname markovclient1 --DataDirectory shadow.data/hosts/markovclient1 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient1.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient2" countrycodehint="id" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient2 --Nickname markovclient2 --DataDirectory shadow.data/hosts/markovclient2 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient2.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient3" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient3 --Nickname markovclient3 --DataDirectory shadow.data/hosts/markovclient3 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient3.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient4" countrycodehint="ru" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient4 --Nickname markovclient4 --DataDirectory shadow.data/hosts/markovclient4 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient4.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient5" countrycodehint="ru" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient5 --Nickname markovclient5 --DataDirectory shadow.data/hosts/markovclient5 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient5.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient6" countrycodehint="ru" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient6 --Nickname markovclient6 --DataDirectory shadow.data/hosts/markovclient6 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient6.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient7" countrycodehint="de" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient7 --Nickname markovclient7 --DataDirectory shadow.data/hosts/markovclient7 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient7.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient8" countrycodehint="ch" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient8 --Nickname markovclient8 --DataDirectory shadow.data/hosts/markovclient8 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient8.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient9" countrycodehint="bd" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient9 --Nickname markovclient9 --DataDirectory shadow.data/hosts/markovclient9 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient9.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient10" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient10 --Nickname markovclient10 --DataDirectory shadow.data/hosts/markovclient10 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient10.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient11" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient11 --Nickname markovclient11 --DataDirectory shadow.data/hosts/markovclient11 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient11.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient12" countrycodehint="de" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient12 --Nickname markovclient12 --DataDirectory shadow.data/hosts/markovclient12 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient12.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient13" countrycodehint="no" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient13 --Nickname markovclient13 --DataDirectory shadow.data/hosts/markovclient13 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient13.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient14" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient14 --Nickname markovclient14 --DataDirectory shadow.data/hosts/markovclient14 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient14.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient15" countrycodehint="si" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient15 --Nickname markovclient15 --DataDirectory shadow.data/hosts/markovclient15 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient15.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient16" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient16 --Nickname markovclient16 --DataDirectory shadow.data/hosts/markovclient16 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient16.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient17" countrycodehint="de" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient17 --Nickname markovclient17 --DataDirectory shadow.data/hosts/markovclient17 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient17.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient18" countrycodehint="ru" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient18 --Nickname markovclient18 --DataDirectory shadow.data/hosts/markovclient18 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient18.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient19" countrycodehint="gb" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient19 --Nickname markovclient19 --DataDirectory shadow.data/hosts/markovclient19 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient19.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient20" countrycodehint="br" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient20 --Nickname markovclient20 --DataDirectory shadow.data/hosts/markovclient20 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient20.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient21" countrycodehint="ru" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient21 --Nickname markovclient21 --DataDirectory shadow.data/hosts/markovclient21 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient21.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient22" countrycodehint="gh" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient22 --Nickname markovclient22 --DataDirectory shadow.data/hosts/markovclient22 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient22.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient23" countrycodehint="nl" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient23 --Nickname markovclient23 --DataDirectory shadow.data/hosts/markovclient23 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient23.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient24" countrycodehint="ca" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient24 --Nickname markovclient24 --DataDirectory shadow.data/hosts/markovclient24 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient24.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient25" countrycodehint="ve" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient25 --Nickname markovclient25 --DataDirectory shadow.data/hosts/markovclient25 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient25.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient26" countrycodehint="br" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient26 --Nickname markovclient26 --DataDirectory shadow.data/hosts/markovclient26 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient26.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient27" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient27 --Nickname markovclient27 --DataDirectory shadow.data/hosts/markovclient27 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient27.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient28" countrycodehint="nl" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient28 --Nickname markovclient28 --DataDirectory shadow.data/hosts/markovclient28 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient28.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient29" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient29 --Nickname markovclient29 --DataDirectory shadow.data/hosts/markovclient29 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient29.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient30" countrycodehint="cr" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient30 --Nickname markovclient30 --DataDirectory shadow.data/hosts/markovclient30 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient30.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient31" countrycodehint="fr" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient31 --Nickname markovclient31 --DataDirectory shadow.data/hosts/markovclient31 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient31.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient32" countrycodehint="au" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient32 --Nickname markovclient32 --DataDirectory shadow.data/hosts/markovclient32 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient32.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient33" countrycodehint="gb" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient33 --Nickname markovclient33 --DataDirectory shadow.data/hosts/markovclient33 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient33.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient34" countrycodehint="be" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient34 --Nickname markovclient34 --DataDirectory shadow.data/hosts/markovclient34 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient34.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient35" countrycodehint="iq" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient35 --Nickname markovclient35 --DataDirectory shadow.data/hosts/markovclient35 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient35.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient36" countrycodehint="ph" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient36 --Nickname markovclient36 --DataDirectory shadow.data/hosts/markovclient36 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient36.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient37" countrycodehint="ar" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient37 --Nickname markovclient37 --DataDirectory shadow.data/hosts/markovclient37 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient37.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient38" countrycodehint="id" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient38 --Nickname markovclient38 --DataDirectory shadow.data/hosts/markovclient38 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient38.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient39" countrycodehint="se" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient39 --Nickname markovclient39 --DataDirectory shadow.data/hosts/markovclient39 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient39.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient40" countrycodehint="lt" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient40 --Nickname markovclient40 --DataDirectory shadow.data/hosts/markovclient40 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient40.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient41" countrycodehint="ru" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient41 --Nickname markovclient41 --DataDirectory shadow.data/hosts/markovclient41 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient41.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient42" countrycodehint="ru" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient42 --Nickname markovclient42 --DataDirectory shadow.data/hosts/markovclient42 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient42.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient43" countrycodehint="ar" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient43 --Nickname markovclient43 --DataDirectory shadow.data/hosts/markovclient43 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient43.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient44" countrycodehint="ca" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient44 --Nickname markovclient44 --DataDirectory shadow.data/hosts/markovclient44 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient44.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient45" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient45 --Nickname markovclient45 --DataDirectory shadow.data/hosts/markovclient45 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient45.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient46" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient46 --Nickname markovclient46 --DataDirectory shadow.data/hosts/markovclient46 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient46.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient47" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient47 --Nickname markovclient47 --DataDirectory shadow.data/hosts/markovclient47 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient47.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient48" countrycodehint="de" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient48 --Nickname markovclient48 --DataDirectory shadow.data/hosts/markovclient48 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient48.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient49" countrycodehint="id" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient49 --Nickname markovclient49 --DataDirectory shadow.data/hosts/markovclient49 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient49.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient50" countrycodehint="ru" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient50 --Nickname markovclient50 --DataDirectory shadow.data/hosts/markovclient50 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient50.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient51" countrycodehint="au" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient51 --Nickname markovclient51 --DataDirectory shadow.data/hosts/markovclient51 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient51.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient52" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient52 --Nickname markovclient52 --DataDirectory shadow.data/hosts/markovclient52 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient52.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient53" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient53 --Nickname markovclient53 --DataDirectory shadow.data/hosts/markovclient53 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient53.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient54" countrycodehint="sk" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient54 --Nickname markovclient54 --DataDirectory shadow.data/hosts/markovclient54 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient54.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient55" countrycodehint="br" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient55 --Nickname markovclient55 --DataDirectory shadow.data/hosts/markovclient55 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient55.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient56" countrycodehint="ru" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient56 --Nickname markovclient56 --DataDirectory shadow.data/hosts/markovclient56 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient56.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient57" countrycodehint="ro" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient57 --Nickname markovclient57 --DataDirectory shadow.data/hosts/markovclient57 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient57.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient58" countrycodehint="ru" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient58 --Nickname markovclient58 --DataDirectory shadow.data/hosts/markovclient58 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient58.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient59" countrycodehint="ru" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient59 --Nickname markovclient59 --DataDirectory shadow.data/hosts/markovclient59 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient59.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient60" countrycodehint="de" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient60 --Nickname markovclient60 --DataDirectory shadow.data/hosts/markovclient60 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient60.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient61" countrycodehint="de" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient61 --Nickname markovclient61 --DataDirectory shadow.data/hosts/markovclient61 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient61.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient62" countrycodehint="jp" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient62 --Nickname markovclient62 --DataDirectory shadow.data/hosts/markovclient62 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient62.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient63" countrycodehint="br" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient63 --Nickname markovclient63 --DataDirectory shadow.data/hosts/markovclient63 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient63.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient64" countrycodehint="ua" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient64 --Nickname markovclient64 --DataDirectory shadow.data/hosts/markovclient64 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient64.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient65" countrycodehint="kw" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient65 --Nickname markovclient65 --DataDirectory shadow.data/hosts/markovclient65 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient65.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient66" countrycodehint="ca" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient66 --Nickname markovclient66 --DataDirectory shadow.data/hosts/markovclient66 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient66.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient67" countrycodehint="fi" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient67 --Nickname markovclient67 --DataDirectory shadow.data/hosts/markovclient67 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient67.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient68" countrycodehint="id" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient68 --Nickname markovclient68 --DataDirectory shadow.data/hosts/markovclient68 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient68.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient69" countrycodehint="be" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient69 --Nickname markovclient69 --DataDirectory shadow.data/hosts/markovclient69 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient69.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient70" countrycodehint="bg" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient70 --Nickname markovclient70 --DataDirectory shadow.data/hosts/markovclient70 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient70.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient71" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient71 --Nickname markovclient71 --DataDirectory shadow.data/hosts/markovclient71 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient71.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient72" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient72 --Nickname markovclient72 --DataDirectory shadow.data/hosts/markovclient72 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient72.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient73" countrycodehint="de" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient73 --Nickname markovclient73 --DataDirectory shadow.data/hosts/markovclient73 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient73.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient74" countrycodehint="ru" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient74 --Nickname markovclient74 --DataDirectory shadow.data/hosts/markovclient74 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient74.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient75" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient75 --Nickname markovclient75 --DataDirectory shadow.data/hosts/markovclient75 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient75.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient76" countrycodehint="es" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient76 --Nickname markovclient76 --DataDirectory shadow.data/hosts/markovclient76 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient76.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient77" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient77 --Nickname markovclient77 --DataDirectory shadow.data/hosts/markovclient77 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient77.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient78" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient78 --Nickname markovclient78 --DataDirectory shadow.data/hosts/markovclient78 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient78.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient79" countrycodehint="de" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient79 --Nickname markovclient79 --DataDirectory shadow.data/hosts/markovclient79 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient79.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient80" countrycodehint="gb" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient80 --Nickname markovclient80 --DataDirectory shadow.data/hosts/markovclient80 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient80.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient81" countrycodehint="gb" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient81 --Nickname markovclient81 --DataDirectory shadow.data/hosts/markovclient81 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient81.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient82" countrycodehint="fr" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient82 --Nickname markovclient82 --DataDirectory shadow.data/hosts/markovclient82 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient82.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient83" countrycodehint="nl" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient83 --Nickname markovclient83 --DataDirectory shadow.data/hosts/markovclient83 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient83.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient84" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient84 --Nickname markovclient84 --DataDirectory shadow.data/hosts/markovclient84 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient84.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient85" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient85 --Nickname markovclient85 --DataDirectory shadow.data/hosts/markovclient85 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient85.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient86" countrycodehint="pl" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient86 --Nickname markovclient86 --DataDirectory shadow.data/hosts/markovclient86 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient86.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient87" countrycodehint="ru" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient87 --Nickname markovclient87 --DataDirectory shadow.data/hosts/markovclient87 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient87.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient88" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient88 --Nickname markovclient88 --DataDirectory shadow.data/hosts/markovclient88 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient88.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient89" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient89 --Nickname markovclient89 --DataDirectory shadow.data/hosts/markovclient89 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient89.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient90" countrycodehint="fr" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient90 --Nickname markovclient90 --DataDirectory shadow.data/hosts/markovclient90 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient90.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient91" countrycodehint="es" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient91 --Nickname markovclient91 --DataDirectory shadow.data/hosts/markovclient91 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient91.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient92" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient92 --Nickname markovclient92 --DataDirectory shadow.data/hosts/markovclient92 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient92.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient93" countrycodehint="gb" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient93 --Nickname markovclient93 --DataDirectory shadow.data/hosts/markovclient93 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient93.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient94" countrycodehint="ru" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient94 --Nickname markovclient94 --DataDirectory shadow.data/hosts/markovclient94 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient94.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient95" countrycodehint="de" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient95 --Nickname markovclient95 --DataDirectory shadow.data/hosts/markovclient95 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient95.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient96" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient96 --Nickname markovclient96 --DataDirectory shadow.data/hosts/markovclient96 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient96.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient97" countrycodehint="lv" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient97 --Nickname markovclient97 --DataDirectory shadow.data/hosts/markovclient97 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient97.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient98" countrycodehint="ir" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient98 --Nickname markovclient98 --DataDirectory shadow.data/hosts/markovclient98 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient98.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient99" countrycodehint="ch" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient99 --Nickname markovclient99 --DataDirectory shadow.data/hosts/markovclient99 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient99.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient100" countrycodehint="ca" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient100 --Nickname markovclient100 --DataDirectory shadow.data/hosts/markovclient100 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient100.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient101" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient101 --Nickname markovclient101 --DataDirectory shadow.data/hosts/markovclient101 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient101.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient102" countrycodehint="fr" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient102 --Nickname markovclient102 --DataDirectory shadow.data/hosts/markovclient102 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient102.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient103" countrycodehint="ru" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient103 --Nickname markovclient103 --DataDirectory shadow.data/hosts/markovclient103 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient103.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient104" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient104 --Nickname markovclient104 --DataDirectory shadow.data/hosts/markovclient104 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient104.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient105" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient105 --Nickname markovclient105 --DataDirectory shadow.data/hosts/markovclient105 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient105.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient106" countrycodehint="ru" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient106 --Nickname markovclient106 --DataDirectory shadow.data/hosts/markovclient106 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient106.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient107" countrycodehint="ar" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient107 --Nickname markovclient107 --DataDirectory shadow.data/hosts/markovclient107 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient107.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient108" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient108 --Nickname markovclient108 --DataDirectory shadow.data/hosts/markovclient108 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient108.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient109" countrycodehint="fr" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient109 --Nickname markovclient109 --DataDirectory shadow.data/hosts/markovclient109 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient109.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient110" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient110 --Nickname markovclient110 --DataDirectory shadow.data/hosts/markovclient110 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient110.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient111" countrycodehint="ru" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient111 --Nickname markovclient111 --DataDirectory shadow.data/hosts/markovclient111 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient111.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient112" countrycodehint="tr" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient112 --Nickname markovclient112 --DataDirectory shadow.data/hosts/markovclient112 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient112.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient113" countrycodehint="cr" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient113 --Nickname markovclient113 --DataDirectory shadow.data/hosts/markovclient113 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient113.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient114" countrycodehint="ru" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient114 --Nickname markovclient114 --DataDirectory shadow.data/hosts/markovclient114 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient114.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient115" countrycodehint="de" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient115 --Nickname markovclient115 --DataDirectory shadow.data/hosts/markovclient115 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient115.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient116" countrycodehint="fi" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient116 --Nickname markovclient116 --DataDirectory shadow.data/hosts/markovclient116 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient116.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient117" countrycodehint="de" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient117 --Nickname markovclient117 --DataDirectory shadow.data/hosts/markovclient117 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient117.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient118" countrycodehint="it" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient118 --Nickname markovclient118 --DataDirectory shadow.data/hosts/markovclient118 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient118.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient119" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient119 --Nickname markovclient119 --DataDirectory shadow.data/hosts/markovclient119 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient119.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient120" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient120 --Nickname markovclient120 --DataDirectory shadow.data/hosts/markovclient120 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient120.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient121" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient121 --Nickname markovclient121 --DataDirectory shadow.data/hosts/markovclient121 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient121.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient122" countrycodehint="de" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient122 --Nickname markovclient122 --DataDirectory shadow.data/hosts/markovclient122 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient122.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient123" countrycodehint="il" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient123 --Nickname markovclient123 --DataDirectory shadow.data/hosts/markovclient123 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient123.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient124" countrycodehint="ca" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient124 --Nickname markovclient124 --DataDirectory shadow.data/hosts/markovclient124 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient124.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient125" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient125 --Nickname markovclient125 --DataDirectory shadow.data/hosts/markovclient125 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient125.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient126" countrycodehint="ua" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient126 --Nickname markovclient126 --DataDirectory shadow.data/hosts/markovclient126 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient126.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient127" countrycodehint="ru" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient127 --Nickname markovclient127 --DataDirectory shadow.data/hosts/markovclient127 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient127.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient128" countrycodehint="in" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient128 --Nickname markovclient128 --DataDirectory shadow.data/hosts/markovclient128 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient128.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient129" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient129 --Nickname markovclient129 --DataDirectory shadow.data/hosts/markovclient129 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient129.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient130" countrycodehint="id" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient130 --Nickname markovclient130 --DataDirectory shadow.data/hosts/markovclient130 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient130.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient131" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient131 --Nickname markovclient131 --DataDirectory shadow.data/hosts/markovclient131 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient131.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient132" countrycodehint="ru" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient132 --Nickname markovclient132 --DataDirectory shadow.data/hosts/markovclient132 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient132.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient133" countrycodehint="il" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient133 --Nickname markovclient133 --DataDirectory shadow.data/hosts/markovclient133 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient133.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient134" countrycodehint="gb" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient134 --Nickname markovclient134 --DataDirectory shadow.data/hosts/markovclient134 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient134.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient135" countrycodehint="au" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient135 --Nickname markovclient135 --DataDirectory shadow.data/hosts/markovclient135 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient135.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient136" countrycodehint="ca" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient136 --Nickname markovclient136 --DataDirectory shadow.data/hosts/markovclient136 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient136.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient137" countrycodehint="ir" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient137 --Nickname markovclient137 --DataDirectory shadow.data/hosts/markovclient137 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient137.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient138" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient138 --Nickname markovclient138 --DataDirectory shadow.data/hosts/markovclient138 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient138.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient139" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient139 --Nickname markovclient139 --DataDirectory shadow.data/hosts/markovclient139 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient139.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient140" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient140 --Nickname markovclient140 --DataDirectory shadow.data/hosts/markovclient140 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient140.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient141" countrycodehint="de" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient141 --Nickname markovclient141 --DataDirectory shadow.data/hosts/markovclient141 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient141.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient142" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient142 --Nickname markovclient142 --DataDirectory shadow.data/hosts/markovclient142 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient142.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient143" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient143 --Nickname markovclient143 --DataDirectory shadow.data/hosts/markovclient143 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient143.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient144" countrycodehint="ru" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient144 --Nickname markovclient144 --DataDirectory shadow.data/hosts/markovclient144 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient144.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient145" countrycodehint="es" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient145 --Nickname markovclient145 --DataDirectory shadow.data/hosts/markovclient145 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient145.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient146" countrycodehint="ua" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient146 --Nickname markovclient146 --DataDirectory shadow.data/hosts/markovclient146 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient146.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient147" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient147 --Nickname markovclient147 --DataDirectory shadow.data/hosts/markovclient147 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient147.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient148" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient148 --Nickname markovclient148 --DataDirectory shadow.data/hosts/markovclient148 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient148.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient149" countrycodehint="fi" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient149 --Nickname markovclient149 --DataDirectory shadow.data/hosts/markovclient149 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient149.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient150" countrycodehint="fr" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient150 --Nickname markovclient150 --DataDirectory shadow.data/hosts/markovclient150 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient150.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient151" countrycodehint="nl" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient151 --Nickname markovclient151 --DataDirectory shadow.data/hosts/markovclient151 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient151.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient152" countrycodehint="us" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient152 --Nickname markovclient152 --DataDirectory shadow.data/hosts/markovclient152 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient152.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient153" countrycodehint="ru" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient153 --Nickname markovclient153 --DataDirectory shadow.data/hosts/markovclient153 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient153.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient154" countrycodehint="nl" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient154 --Nickname markovclient154 --DataDirectory shadow.data/hosts/markovclient154 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient154.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient155" countrycodehint="ru" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient155 --Nickname markovclient155 --DataDirectory shadow.data/hosts/markovclient155 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient155.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient156" countrycodehint="ph" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient156 --Nickname markovclient156 --DataDirectory shadow.data/hosts/markovclient156 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient156.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient157" countrycodehint="vn" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient157 --Nickname markovclient157 --DataDirectory shadow.data/hosts/markovclient157 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient157.tgenrc.graphml"/>
+  </host>
+  <host id="markovclient158" countrycodehint="cz" bandwidthup="122070" bandwidthdown="122070">
+    <process plugin="tor" preload="tor-preload" starttime="240" arguments="--Address markovclient158 --Nickname markovclient158 --DataDirectory shadow.data/hosts/markovclient158 --GeoIPFile ~/.shadow/share/geoip --defaults-torrc conf/tor.common.torrc -f conf/tor.markovclient.torrc"/>
+    <process plugin="oniontrace" starttime="241" arguments="Mode=log TorControlPort=9051 LogLevel=info Events=BW"/>
+    <process plugin="tgen" starttime="300" arguments="conf/tgen-markov/markovclient158.tgenrc.graphml"/>
+  </host>
+</shadow>

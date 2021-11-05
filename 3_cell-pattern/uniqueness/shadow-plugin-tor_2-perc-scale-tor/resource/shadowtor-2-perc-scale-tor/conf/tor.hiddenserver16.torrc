@@ -1,0 +1,7 @@
+ClientOnly 1
+ORPort 0
+DirPort 0
+SocksPort 9050
+MaxCircuitDirtiness 10 seconds
+HiddenServiceDir shadow.data/hosts/server16/hs
+HiddenServicePort 80 127.0.0.1:8080

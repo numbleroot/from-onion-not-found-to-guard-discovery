@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d9" for="edge" attr.name="param_high" attr.type="double"/>
+<key id="d8" for="edge" attr.name="param_low" attr.type="double"/>
+<key id="d7" for="edge" attr.name="param_scale" attr.type="double"/>
+<key id="d6" for="edge" attr.name="param_location" attr.type="double"/>
+<key id="d5" for="edge" attr.name="param_rate" attr.type="double"/>
+<key id="d4" for="edge" attr.name="distribution" attr.type="string"/>
+<key id="d3" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d2" for="edge" attr.name="type" attr.type="string"/>
+<key id="d1" for="node" attr.name="name" attr.type="string"/>
+<key id="d0" for="node" attr.name="type" attr.type="string"/>
+<graph edgedefault="directed"><node id="s0">
+  <data key="d0">state</data>
+  <data key="d1">start</data>
+</node>
+<node id="s1">
+  <data key="d0">state</data>
+  <data key="d1">Active</data>
+</node>
+<node id="s2">
+  <data key="d0">state</data>
+  <data key="d1">Dwell</data>
+</node>
+<node id="s3">
+  <data key="d0">state</data>
+  <data key="d1">End</data>
+</node>
+<node id="o0">
+  <data key="d0">observation</data>
+  <data key="d1">+</data>
+</node>
+<node id="o1">
+  <data key="d0">observation</data>
+  <data key="d1">F</data>
+</node>
+<edge source="s0" target="s1">
+  <data key="d2">transition</data>
+  <data key="d3">0.03652726756190666</data>
+</edge>
+<edge source="s0" target="s2">
+  <data key="d2">transition</data>
+  <data key="d3">0.9634727324380934</data>
+</edge>
+<edge source="s0" target="s3">
+  <data key="d2">transition</data>
+  <data key="d3">0.0</data>
+</edge>
+<edge source="s1" target="s1">
+  <data key="d2">transition</data>
+  <data key="d3">0.8368115531124</data>
+</edge>
+<edge source="s1" target="s2">
+  <data key="d2">transition</data>
+  <data key="d3">0.10304075312684938</data>
+</edge>
+<edge source="s1" target="s3">
+  <data key="d2">transition</data>
+  <data key="d3">0.06014769376075064</data>
+</edge>
+<edge source="s1" target="o0">
+  <data key="d2">emission</data>
+  <data key="d3">1.0</data>
+  <data key="d4">exponential</data>
+  <data key="d5">2.942168644967784e-07</data>
+</edge>
+<edge source="s2" target="s1">
+  <data key="d2">transition</data>
+  <data key="d3">0.15577865231006133</data>
+</edge>
+<edge source="s2" target="s2">
+  <data key="d2">transition</data>
+  <data key="d3">0.7279190775280556</data>
+</edge>
+<edge source="s2" target="s3">
+  <data key="d2">transition</data>
+  <data key="d3">0.11630227016188302</data>
+</edge>
+<edge source="s2" target="o0">
+  <data key="d2">emission</data>
+  <data key="d3">1.0</data>
+  <data key="d4">lognormal</data>
+  <data key="d6">7.498251160745908</data>
+  <data key="d7">6.514356309882063</data>
+</edge>
+<edge source="s3" target="o1">
+  <data key="d2">emission</data>
+  <data key="d3">1.0</data>
+  <data key="d4">uniform</data>
+  <data key="d8">0.0</data>
+  <data key="d9">0.0</data>
+</edge>
+</graph></graphml>

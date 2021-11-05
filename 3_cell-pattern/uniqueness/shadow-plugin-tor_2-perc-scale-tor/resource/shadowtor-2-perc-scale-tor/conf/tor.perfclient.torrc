@@ -1,0 +1,6 @@
+ClientOnly 1
+ORPort 0
+DirPort 0
+SocksPort 9050
+UseEntryGuards 0
+MaxCircuitDirtiness 10 seconds

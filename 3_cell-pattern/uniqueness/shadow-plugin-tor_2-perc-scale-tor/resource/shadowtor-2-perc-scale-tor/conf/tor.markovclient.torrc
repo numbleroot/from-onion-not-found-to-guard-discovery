@@ -1,0 +1,8 @@
+ClientOnly 1
+ORPort 0
+DirPort 0
+SocksPort 9050
+UseEntryGuards 0
+SocksTimeout 120
+CircuitStreamTimeout 120
+MaxClientCircuitsPending 1024

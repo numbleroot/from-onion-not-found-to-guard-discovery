@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="param_rate" attr.type="double"/>
+<key id="d4" for="edge" attr.name="distribution" attr.type="string"/>
+<key id="d3" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d2" for="edge" attr.name="type" attr.type="string"/>
+<key id="d1" for="node" attr.name="name" attr.type="string"/>
+<key id="d0" for="node" attr.name="type" attr.type="string"/>
+<graph edgedefault="directed"><node id="s0">
+  <data key="d0">state</data>
+  <data key="d1">start</data>
+</node>
+<node id="s1">
+  <data key="d0">state</data>
+  <data key="d1">generate</data>
+</node>
+<node id="o1">
+  <data key="d0">observation</data>
+  <data key="d1">+</data>
+</node>
+<edge source="s0" target="s1">
+  <data key="d2">transition</data>
+  <data key="d3">1.0</data>
+</edge>
+<edge source="s1" target="s1">
+  <data key="d2">transition</data>
+  <data key="d3">1.0</data>
+</edge>
+<edge source="s1" target="o1">
+  <data key="d2">emission</data>
+  <data key="d3">1.0</data>
+  <data key="d4">exponential</data>
+  <data key="d5">3.15e-07</data>
+</edge>
+</graph></graphml>

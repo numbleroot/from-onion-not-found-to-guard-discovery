@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d9" for="edge" attr.name="weight" attr.type="string"/>
+<key id="d8" for="node" attr.name="timeout" attr.type="string"/>
+<key id="d7" for="node" attr.name="stallout" attr.type="string"/>
+<key id="d6" for="node" attr.name="recvsize" attr.type="string"/>
+<key id="d5" for="node" attr.name="sendsize" attr.type="string"/>
+<key id="d4" for="node" attr.name="time" attr.type="string"/>
+<key id="d3" for="node" attr.name="packetmodelmode" attr.type="string"/>
+<key id="d2" for="node" attr.name="peers" attr.type="string"/>
+<key id="d1" for="node" attr.name="socksproxy" attr.type="string"/>
+<key id="d0" for="node" attr.name="loglevel" attr.type="string"/>
+<graph edgedefault="directed"><node id="start">
+  <data key="d0">message</data>
+  <data key="d1">localhost:9050</data>
+  <data key="d2">server1:80,server2:80,server3:80,server4:80,server5:80,server6:80,server7:80,server8:80,server9:80,server10:80,server11:80,server12:80,jrql7bp2idhgocis.onion:80,hk4ukmtdqxj3wwap.onion:80,s2shryyv5bi5wzqpnubxlupwzh2mnz2rkaxjjwljdmweb74wp7rpnyqd.onion:80,rfj6hmtx6kmikcmxjza36lny6nrdyn7dmdnitj5ffmzmf53r7y5yuqad.onion:80</data>
+  <data key="d3">path</data>
+</node>
+<node id="pause">
+  <data key="d4">1 minute</data>
+</node>
+<node id="stream_50k">
+  <data key="d5">1000 bytes</data>
+  <data key="d6">50 KiB</data>
+  <data key="d7">0 seconds</data>
+  <data key="d8">15 seconds</data>
+</node>
+<node id="stream_1m">
+  <data key="d5">1000 bytes</data>
+  <data key="d6">1 MiB</data>
+  <data key="d7">0 seconds</data>
+  <data key="d8">60 seconds</data>
+</node>
+<node id="stream_5m">
+  <data key="d5">1000 bytes</data>
+  <data key="d6">5 MiB</data>
+  <data key="d7">0 seconds</data>
+  <data key="d8">120 seconds</data>
+</node>
+<edge source="start" target="pause"/>
+<edge source="pause" target="pause"/>
+<edge source="pause" target="stream_50k">
+  <data key="d9">12.0</data>
+</edge>
+<edge source="pause" target="stream_1m">
+  <data key="d9">2.0</data>
+</edge>
+<edge source="pause" target="stream_5m">
+  <data key="d9">1.0</data>
+</edge>
+</graph></graphml>
