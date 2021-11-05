@@ -1,0 +1,30 @@
+{
+    "start_time": "2020-09-23 03:44:08",
+    "tag": "MAX_HSDESC_RATE",
+    "user": "doclient",
+    "host": "fra1-client-slow",
+    "tbb": "/home/doclient/tor-browser_en-US/",
+    "tbb_version": "9.5.3",
+    "adv_page": "/home/doclient/tor-dos-attack/src/guard-discovery/adv_website.html",
+    "chosen_addr_file": "/home/doclient/tor-dos-attack/src/guard-discovery/pregen_addr/v2_0310.addr",
+    "attack_duration": 60,
+    "log_level": "INFO",
+    "num_parallel": 1,
+    "auto_start": true,
+    "onion_ver": 2,
+    "resource_type": "js",
+    "rate_per_sec": 2.0,
+    "guard_fp": "94890F37CE0CD5D020773CA7A0E397AA592E5AF3",
+    "guard_or_ip": "88.99.189.40",
+    "guard_or_port": "9001",
+    "guard_dir_ip": "88.99.189.40",
+    "guard_dir_port": "9030",
+    "circuit_log_interval": 1,
+    "worker_buffer_time": 15,
+    "main_tor_buffer_time": 7,
+    "main_worker_buffer_time": 15,
+    "excluded_circ_purposes": [
+        "GENERAL"
+    ],
+    "additional_torrc_params": {}
+}
