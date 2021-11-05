@@ -12,7 +12,6 @@ This repository holds the code and data for our **[PETS'22](https://petsymposium
 **Warning:** After taking below download steps, this repository is more than 16 GB in total size. There is also an [accompanying data set hosted at the OSF](https://osf.io/t9x4b/) that is about 64.5 GB.
 
 ```bash
-# MIND: Below command will take some time!
 user@host  $    git clone https://github.com/numbleroot/from-onion-not-found-to-guard-discovery.git
 user@host  $    cd from-onion-not-found-to-guard-discovery
 user@host  $    curl --location "https://files.de-1.osf.io/v1/resources/mbn95/providers/osfstorage/617bf5ad91ed6e00f3891f66?action=download&version=1&direct" --output 3_cell-pattern_large-files.tar

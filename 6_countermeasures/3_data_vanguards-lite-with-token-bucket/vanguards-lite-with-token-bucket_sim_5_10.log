@@ -1,0 +1,13 @@
+Simulation params {'n_experiments': -1, 'n_runs': 50, 'n_adv_hsdirs': 1, 'adv_bw_share': 0.05, 'n_initial_tokens': 5, 'token_refill_rate': 0.0, 'vanguardslite_enabled': True, 'attack_durations': [], 'simulation_duration': 300}
+Results will be written to time_to_double_comp_1_0.05_5_0.000.json
+Runs: 143350: (h: 0.17, bw: 0.05, tb_iv: 5, tb_rr:  0.00) Median: 300.000, P90: 300.000, P99: 300.000 (FP-single: 1.22%) FINAL-CALLS - T: 2.00% F: 0.00% Nocall: 98.00%
+Results will be written to time_to_double_comp_2_0.05_10_0.000.json
+Runs: 143350: (h: 0.33, bw: 0.05, tb_iv: 10, tb_rr:  0.00) Median: 300.000, P90: 300.000, P99: 300.000 (FP-single: 3.51%) FINAL-CALLS - T: 22.53% F: 0.00% Nocall: 77.46%
+Results will be written to time_to_double_comp_2_0.05_5_0.000.json
+Runs: 143350: (h: 0.33, bw: 0.05, tb_iv: 5, tb_rr:  0.00) Median: 300.000, P90: 300.000, P99: 300.000 (FP-single: 2.22%) FINAL-CALLS - T: 6.88% F: 0.00% Nocall: 93.12%
+Results will be written to time_to_double_comp_1_0.05_10_0.000.json
+Runs: 143350: (h: 0.17, bw: 0.05, tb_iv: 10, tb_rr:  0.00) Median: 300.000, P90: 300.000, P99: 300.000 (FP-single: 2.16%) FINAL-CALLS - T: 7.33% F: 0.00% Nocall: 92.66%
+Results will be written to time_to_double_comp_6_0.05_5_0.000.json
+Runs: 143350: (h: 1.00, bw: 0.05, tb_iv: 5, tb_rr:  0.00) Median: 300.000, P90: 300.000, P99: 300.000 (FP-single: 4.56%) FINAL-CALLS - T: 40.09% F: 0.00% Nocall: 59.91%
+Results will be written to time_to_double_comp_6_0.05_10_0.000.json
+Runs: 143350: (h: 1.00, bw: 0.05, tb_iv: 10, tb_rr:  0.00) Median: 3.249, P90: 300.000, P99: 300.000 (FP-single: 4.83%) FINAL-CALLS - T: 77.42% F: 0.01% Nocall: 22.57%

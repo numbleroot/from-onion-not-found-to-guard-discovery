@@ -1,0 +1,9 @@
+Simulation params {'n_experiments': -1, 'n_runs': 50, 'n_adv_hsdirs': 2, 'adv_bw_share': 0.05, 'n_initial_tokens': 0, 'token_refill_rate': 0, 'vanguardslite_enabled': True, 'attack_durations': [], 'simulation_duration': 300}
+Results will be written to time_to_double_comp_2_0.05_0_0.000.json
+Runs: 143350: (h: 0.33, bw: 0.05, tb_iv: 0, tb_rr:  0.00) Median: 5.128, P90: 8.875, P99: 21.312 (FP-single: 4.32%) FINAL-CALLS - T: 99.92% F: 0.02% Nocall: 0.06%
+Simulation params {'n_experiments': -1, 'n_runs': 50, 'n_adv_hsdirs': 6, 'adv_bw_share': 0.05, 'n_initial_tokens': 0, 'token_refill_rate': 0, 'vanguardslite_enabled': True, 'attack_durations': [], 'simulation_duration': 300}
+Results will be written to time_to_double_comp_6_0.05_0_0.000.json
+Runs: 143350: (h: 1.00, bw: 0.05, tb_iv: 0, tb_rr:  0.00) Median: 3.114, P90: 5.367, P99: 17.521 (FP-single: 4.34%) FINAL-CALLS - T: 99.92% F: 0.07% Nocall: 0.01%
+Simulation params {'n_experiments': -1, 'n_runs': 50, 'n_adv_hsdirs': 1, 'adv_bw_share': 0.05, 'n_initial_tokens': 0, 'token_refill_rate': 0, 'vanguardslite_enabled': True, 'attack_durations': [], 'simulation_duration': 300}
+Results will be written to time_to_double_comp_1_0.05_0_0.000.json
+Runs: 143350: (h: 0.17, bw: 0.05, tb_iv: 0, tb_rr:  0.00) Median: 7.219, P90: 12.471, P99: 26.758 (FP-single: 4.39%) FINAL-CALLS - T: 99.91% F: 0.01% Nocall: 0.07%
