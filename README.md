@@ -55,7 +55,7 @@ Browse the READMEs linked below for instructions for how to reproduce the result
 ## Reference
 
 You can use the following BibTeX to cite our paper:
-```tex
+```
 @article{OldenburgAcarDiaz_GuardDiscovery,
     title   = {{From "Onion Not Found" to Guard Discovery}},
     author  = {Lennart Oldenburg and Gunes Acar and Claudia Diaz},
