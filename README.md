@@ -57,14 +57,14 @@ Browse the READMEs linked below for instructions for how to reproduce the result
 You can use the following BibTeX to cite our paper:
 ```tex
 @article{OldenburgAcarDiaz_GuardDiscovery,
-    title   = {{}},
-    author  = {},
-    journal = {},
-    number  = {},
-    volume  = {},
-    year    = {},
-    doi     = {},
-    url     = {},
-    pages   = {}
+    title   = {{From "Onion Not Found" to Guard Discovery}},
+    author  = {Lennart Oldenburg and Gunes Acar and Claudia Diaz},
+    journal = {Proceedings on Privacy Enhancing Technologies},
+    number  = {1},
+    volume  = {2022},
+    year    = {2022},
+    doi     = {doi:10.2478/popets-2022-0026},
+    url     = {https://doi.org/10.2478/popets-2022-0026},
+    pages   = {522--543}
 }
 ```
